@@ -56,9 +56,19 @@ public class RegistrationController implements Initializable {
                     "Please enter a password");
             return;
         }
+        if(txt_address.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                    "Please enter a password");
+            return;
+        }
+        if(txt_phone.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                    "Please enter a password");
+            return;
+        }
 
         AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-                "Welcome " + nameField.getText());
+                "Welcome " + name.getText());
     }
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
