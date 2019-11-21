@@ -2,6 +2,7 @@ package com.mycompany.bookstore;
 
 import java.sql.SQLException;
 
+import DBConection.JdbcDaoLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+
+import static com.mycompany.bookstore.SignUpController.showAlert;
 
 public class LoginController {
 
@@ -43,15 +46,15 @@ public class LoginController {
 
         String emailId = txt_email.getText();
         String password = txt_password.getText();
-/*
-        JdbcDao jdbcDao = new JdbcDao();
-        boolean flag = jdbcDao.validate(emailId, password);*/
 
-       /* if (!flag) {
+        JdbcDaoLogin jdbcDao = new JdbcDaoLogin();
+        boolean flag = jdbcDao.validate(emailId, password);
+
+        if (!flag) {
             infoBox("Please enter correct Email and Password", null, "Failed");
         } else {
-            infoBox("Login Successful!", null, "Failed");
-        }*/
+            infoBox("Login Successful!", null, "Success");
+        }
     }
 
     public static void infoBox(String infoMessage, String headerText, String title) {
