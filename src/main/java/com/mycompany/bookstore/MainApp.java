@@ -13,13 +13,13 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/Login.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/SignUp.fxml"));
         Parent content = loader.load();
 
         Scene scene = new Scene(content);
-        scene.getStylesheets().add("/fxml/style.css");
+        scene.getStylesheets().add("/fxml/styles/style.css");
         
-        stage.setTitle("JavaFX anen");
+        stage.setTitle("Registration Form");
         stage.setScene(scene);
         stage.show();
     }

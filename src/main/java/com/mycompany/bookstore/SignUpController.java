@@ -12,13 +12,13 @@ import javafx.stage.Window;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegistrationController implements Initializable {
+public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    
+
 
     @FXML
     private TextField name;
@@ -36,19 +36,19 @@ public class RegistrationController implements Initializable {
     private  TextField txt_phone;
 
     @FXML
-    private Button submitButton;
+    private Button btn_signup;
 
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) {
-        Window owner = submitButton.getScene().getWindow();
+        Window owner = btn_signup.getScene().getWindow();
         if(name.getText().isEmpty()) {
-            AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                     "Please enter your name");
             return;
         }
         if(txt_email.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Please enter your email id");
+                    "Please enter your email");
             return;
         }
 
@@ -59,16 +59,16 @@ public class RegistrationController implements Initializable {
         }
         if(txt_address.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Please enter a password");
+                    "Please enter an address");
             return;
         }
         if(txt_phone.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Please enter a password");
+                    "Please enter a phone");
             return;
         }
 
-        AlertHelper.showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + name.getText());
     }
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
