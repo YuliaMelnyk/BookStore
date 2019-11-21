@@ -1,5 +1,6 @@
 package com.mycompany.bookstore;
 
+import DBConection.SignUpDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
@@ -21,7 +23,7 @@ public class SignUpController implements Initializable {
 
 
     @FXML
-    private TextField name;
+    private TextField txt_name;
 
     @FXML
     private TextField txt_email;
@@ -39,9 +41,9 @@ public class SignUpController implements Initializable {
     private Button btn_signup;
 
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) {
+    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
         Window owner = btn_signup.getScene().getWindow();
-        if(name.getText().isEmpty()) {
+        if(txt_name.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                     "Please enter your name");
             return;
@@ -68,8 +70,16 @@ public class SignUpController implements Initializable {
             return;
         }
 
+        String name = txt_name.getText();
+        String email = txt_email.getText();
+        String password = txt_password.getText();
+        String address = txt_address.getText();
+        String phone = txt_phone.getText();
+
+        SignUpDao signUpDao = new SignUpDao();
+        signUpDao.insertRecord(name, email, password, address, phone);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-                "Welcome " + name.getText());
+                "Welcome " + txt_name.getText());
     }
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
