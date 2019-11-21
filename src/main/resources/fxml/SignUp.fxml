@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="vbox" alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="570.0" stylesheets="@style.css"
+<VBox id="vbox" alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="570.0" stylesheets="@../../java/view/style.css"
       xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.mycompany.bookstore.SignUpController">
     <children>
@@ -29,7 +29,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-user-50.png"/>
+                        <Image url="@../../java/view/images/icons8-user-50.png"/>
                     </image>
                 </ImageView>
                 <TextField fx:id="name" prefHeight="40.0" prefWidth="350.0" promptText="Name"/>
@@ -42,7 +42,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-email-100.png"/>
+                        <Image url="@../../java/view/images/icons8-email-100.png"/>
                     </image>
                 </ImageView>
                 <TextField fx:id="txt_email" prefHeight="40.0" prefWidth="350.0" promptText="Email"/>
@@ -55,7 +55,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-password-50.png"/>
+                        <Image url="@../../java/view/images/icons8-password-50.png"/>
                     </image>
                 </ImageView>
                 <PasswordField fx:id="txt_password" prefHeight="40.0" prefWidth="350.0" promptText="Password"/>
@@ -68,7 +68,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-address-50.png"/>
+                        <Image url="@../../java/view/images/icons8-address-50.png"/>
                     </image>
                 </ImageView>
                 <PasswordField fx:id="txt_address" prefHeight="40.0" prefWidth="350.0" promptText="Address"/>
@@ -81,7 +81,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-phone-50.png"/>
+                        <Image url="@../../java/view/images/icons8-phone-50.png"/>
                     </image>
                 </ImageView>
                 <PasswordField fx:id="txt_phone" prefHeight="40.0" prefWidth="350.0" promptText="Phone"/>
@@ -93,7 +93,7 @@
             </VBox.margin>
             <children>
                 <JFXButton fx:id="btn_signup" onAction="#" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
-                           stylesheets="@style.css" text="Sign Up">
+                           stylesheets="@../../java/view/style.css" text="Sign Up">
                     <font>
                         <Font size="13.0"/>
                     </font>

@@ -19,7 +19,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(content);
         scene.getStylesheets().add("/fxml/style.css");
         
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("JavaFX anen");
         stage.setScene(scene);
         stage.show();
     }
