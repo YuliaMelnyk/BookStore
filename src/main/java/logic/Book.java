@@ -4,15 +4,14 @@ public class Book {
     String ISBN;
     String name;
     String genre;
-    double price;
+    float price;
     String description;
-    int image;
     String author;
     String publisher;
     int year;
     String language;
-    
-     //getters and setters
+
+    //getters and setters
 
     public String getISBN() {
         return ISBN;
@@ -42,7 +41,7 @@ public class Book {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -52,14 +51,6 @@ public class Book {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
     }
 
     public String getAuthor() {

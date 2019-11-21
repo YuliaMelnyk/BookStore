@@ -10,16 +10,18 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
+    //start application with login form
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/SignUp.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/Login.fxml"));
         Parent content = loader.load();
 
         Scene scene = new Scene(content);
         scene.getStylesheets().add("/fxml/styles/style.css");
         
-        stage.setTitle("Registration Form");
+        stage.setTitle("Login Form");
         stage.setScene(scene);
         stage.show();
     }

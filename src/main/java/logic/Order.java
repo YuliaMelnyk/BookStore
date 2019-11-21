@@ -5,18 +5,18 @@
  */
 package logic;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
- *
- * @author serhiimelnyk
+ * @author yuliiamelnyk
  */
 public class Order {
     int number;
-    Date date;
-    double total_price;
-    
-     //getters and setters
+    LocalDate date;
+    float total_price;
+
+    //getters and setters
 
     public int getNumber() {
         return number;
@@ -26,11 +26,11 @@ public class Order {
         this.number = number;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -38,7 +38,7 @@ public class Order {
         return total_price;
     }
 
-    public void setTotal_price(double total_price) {
+    public void setTotal_price(float total_price) {
         this.total_price = total_price;
     }
 }

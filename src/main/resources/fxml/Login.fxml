@@ -61,7 +61,7 @@
                 <Insets left="25.0" right="25.0" top="20.0"/>
             </VBox.margin>
             <children>
-                <JFXButton fx:id="btn_signin"  onAction="#login" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
+                <JFXButton fx:id="btn_signIn" onAction="#login" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
                            stylesheets="@styles/style.css" text="Sign In">
                     <font>
                         <Font size="13.0"/>
@@ -69,7 +69,7 @@
                 </JFXButton>
             </children>
             <children>
-                <JFXButton fx:id="btn_signup"  prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
+                <JFXButton fx:id="btn_signUp" onAction="#onSignUpClick" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
                            stylesheets="@styles/style.css" text="Sign Up">
                     <font>
                         <Font size="13.0"/>
