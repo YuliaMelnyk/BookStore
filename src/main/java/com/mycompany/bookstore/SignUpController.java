@@ -18,6 +18,7 @@ public class RegistrationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+    
 
     @FXML
     private TextField name;
