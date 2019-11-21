@@ -12,6 +12,7 @@ import java.util.UUID;
  * @author serhiimelnyk
  */
 public class User {
+    
     UUID id;
     String name;
     String email;
