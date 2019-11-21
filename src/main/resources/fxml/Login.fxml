@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="vbox" alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="570.0" stylesheets="@style.css"
+<VBox id="vbox" alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.mycompany.bookstore.LoginController">
     <children>
@@ -62,7 +62,7 @@
             </VBox.margin>
             <children>
                 <JFXButton fx:id="btn_signin" onAction="#onAction" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
-                           stylesheets="@style.css" text="Sign In">
+                           stylesheets="@styles/style.css" text="Sign In">
                     <font>
                         <Font size="13.0"/>
                     </font>
@@ -70,7 +70,7 @@
             </children>
             <children>
                 <JFXButton fx:id="btn_signup" onAction="#onAction" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn"
-                           stylesheets="@style.css" text="Sign Up">
+                           stylesheets="@styles/style.css" text="Sign Up">
                     <font>
                         <Font size="13.0"/>
                     </font>
