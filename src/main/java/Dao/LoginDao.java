@@ -1,6 +1,6 @@
 package Dao;
 
-import logic.User;
+import Entity.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

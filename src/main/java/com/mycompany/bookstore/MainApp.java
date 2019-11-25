@@ -19,11 +19,6 @@ public class MainApp extends Application {
     public static String CurrentUserEmail;
 
     private static Stage pStage;
-@FXML
-    JFXButton btn_signUp;
-
-@FXML
-        VBox vboxRegitration;
 
 
 
@@ -44,12 +39,6 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
 
-/*        btn_signUp.setOnAction(e -> stage.setScene(scene2));
-        FXMLLoader loader2 = new FXMLLoader();
-        loader2.setLocation(getClass().getResource("/fxml/SignUp.fxml"));
-        vboxRegitration = loader2.load();
-        scene2 = new Scene(vboxRegitration);
-        scene2.getStylesheets().add("/fxml/styles/style.css");*/
     }
     private void setPrimaryStage(Stage pStage){
         MainApp.pStage = pStage;

@@ -43,8 +43,8 @@ public class AdminPageController implements Initializable {
     private Button btn_signUp;
 
     //on Click event method
-    @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
+
+   /* protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
         Window owner = btn_signUp.getScene().getWindow();
         if (txt_name.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
@@ -86,4 +86,5 @@ public class AdminPageController implements Initializable {
         signUpDao.insertRecord(name, email, password, address, phone);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
-    }
+    }*/
+}
