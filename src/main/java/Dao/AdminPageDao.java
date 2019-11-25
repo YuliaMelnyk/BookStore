@@ -15,8 +15,7 @@ public class AdminPageDao {
     private static final String QUERY = "INSERT INTO book (isbn , name, genre, price, description, author, publisher, year, language) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
-    public void insertBook(String isbn, String name, String genre, String price, String description, String author, String publisher,
-    String year, String language) throws SQLException {
+    public void insertBook(String isbn, String name, String genre, String price, String description, String author, String publisher, String year, String language) throws SQLException {
 
         try (Connection connection = DriverManager
                 .getConnection(URL, NAME, PASSWORD);
