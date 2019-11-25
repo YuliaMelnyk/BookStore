@@ -1,5 +1,7 @@
 package Dao;
 
+import logic.User;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,6 +21,7 @@ public class LoginDao {
 
     // create query
     private static final String SELECT_QUERY = "SELECT * FROM user WHERE email = ? and password = ?";
+    private static final String GET_USER_QUERY = "SELECT * FROM user WHERE email = ?";
 
     // Create method with connecting to database, doing query and select our values from database.
 
@@ -41,6 +44,20 @@ public class LoginDao {
             printSQLException(e);
         }
         return false;
+    }
+
+    public User getUserByEmail(String email) throws SQLException {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_QUERY)) {
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            User user = new User();
+            while (resultSet.next()) {
+                user.setAdmin((boolean)resultSet.getObject(7));
+            }
+            return user;
+        }
     }
 
     public static void printSQLException(SQLException ex) {

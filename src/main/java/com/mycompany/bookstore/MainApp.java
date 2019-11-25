@@ -16,6 +16,7 @@ import java.io.IOException;
 
 
 public class MainApp extends Application {
+    public static String CurrentUserEmail;
 
     private static Stage pStage;
 @FXML

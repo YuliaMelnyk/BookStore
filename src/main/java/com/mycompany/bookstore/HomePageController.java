@@ -1,5 +1,6 @@
 package com.mycompany.bookstore;
 
+import Dao.LoginDao;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,18 +12,33 @@ import logic.User;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+
+import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 
 public class HomePageController {
 
     private User user;
     @FXML
-    Hyperlink admimPageButton;
+    Hyperlink adminPageButton;
 
     @FXML
     AnchorPane homepage;
     private List<Book> bookList;
 
+    public void initialize() {
+        LoginDao loginDao = new LoginDao();
+        try {
+            User user = loginDao.getUserByEmail(CurrentUserEmail);
+            if(user.isAdmin())
+            {
+                adminPageButton.setVisible(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void gotoHomePage() throws IOException {
         FXMLLoader loader2 = new FXMLLoader();
@@ -50,7 +66,7 @@ public class HomePageController {
 
     public void showAdminButton(boolean isAdmin) {
         if (isAdmin) {
-            admimPageButton.setVisible(true);
+            adminPageButton.setVisible(true);
         }
     }
 }

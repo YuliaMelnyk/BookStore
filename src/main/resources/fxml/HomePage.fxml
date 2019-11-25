@@ -71,7 +71,7 @@
                 </children>
 
                 <children>
-                    <Hyperlink id="adminPageButton" alignment="TOP_CENTER" contentDisplay="TOP"
+                    <Hyperlink fx:id="adminPageButton" alignment="TOP_CENTER" contentDisplay="TOP"
                                maxWidth="1.7976931348623157E308" onAction="#gotoAdminPage"
                                styleClass="navigation-hyperlink" stylesheets="@styles/style.css" text="Create Book"
                                textAlignment="CENTER" visible="false">
