@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox id="vbox" alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css"
+<VBox id="LoginVBox" alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.mycompany.bookstore.LoginController">
     <children>
