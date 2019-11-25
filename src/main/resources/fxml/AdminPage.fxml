@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox id="vbox" alignment="TOP_CENTER" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.AdminPageController">
+    <children>
+        <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="562.0">
+            <Label id="title" alignment="TOP_CENTER" layoutX="100.0" layoutY="115.0" prefHeight="43.0" prefWidth="200.0" text="Admin Page" textFill="#7a5465">
+                <font>
+                    <Font size="35.0" />
+                </font>
+
+            </Label>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" top="30.0" />
+            </VBox.margin>
+        <children>
+            <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="ISBN" textFill="#7a5465">
+
+            </Label>
+            <TextField fx:id="txt_isbn" prefHeight="40.0" prefWidth="350.0" promptText="ISBN" />
+
+        </children>
+
+        </HBox>
+
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Genre" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_genre" prefHeight="40.0" prefWidth="350.0" promptText="Genre" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Price" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_price" prefHeight="40.0" prefWidth="350.0" promptText="Price" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Description" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_description" prefHeight="40.0" prefWidth="350.0" promptText="Description" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Author" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_author" prefHeight="40.0" prefWidth="350.0" promptText="Author" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Publisher" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_publisher" prefHeight="40.0" prefWidth="350.0" promptText="Publisher" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Year" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_year" prefHeight="40.0" prefWidth="350.0" promptText="Year" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Language" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_language" prefHeight="40.0" prefWidth="350.0" promptText="Language" />
+
+            </children>
+
+        </HBox>
+
+        <HBox alignment="CENTER" layoutX="25.0" layoutY="272.0" prefHeight="46.0" prefWidth="392.0" spacing="30">
+            <VBox.margin>
+                <Insets left="25.0" right="25.0" top="20.0" />
+            </VBox.margin>
+            <children>
+                <JFXButton fx:id="btn_signIn" onAction="#login" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Add">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXButton>
+            </children>
+            <children>
+                <JFXButton fx:id="btn_signUp" onAction="#onSignUpClick" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Update">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXButton>
+            </children>
+            <children>
+                <JFXButton fx:id="btn_signUp" onAction="#onSignUpClick" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Delete">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </HBox>
+
+
+        <AnchorPane id="AnchorPane" prefHeight="215.0" prefWidth="570.0" xmlns:fx="http://javafx.com/fxml">
+            <children>
+                <TableView fx:id="bookTable" layoutX="35.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="500.0">
+
+                    <columns>
+                        <TableColumn fx:id="UserId" prefWidth="250.0" text="ISBN" />
+                        <TableColumn fx:id="UserName" prefWidth="250.0" text="Name" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+
+</VBox>
