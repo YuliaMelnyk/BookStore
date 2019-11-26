@@ -20,11 +20,6 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-    //inject  values defined in an FXML file into references
 
     @FXML
     private TextField txt_name;
@@ -43,6 +38,16 @@ public class SignUpController implements Initializable {
 
     @FXML
     private Button btn_signUp;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txt_name.setPromptText("Enter username");
+        txt_password.setPromptText("Enter password");
+        txt_email.setPromptText("example@example.com");
+        txt_address.setPromptText("Enter address");
+        txt_phone.setPromptText("123456789");
+    }
+    //inject  values defined in an FXML file into references
+
 
     //on Click event method
     @FXML
@@ -53,9 +58,9 @@ public class SignUpController implements Initializable {
                     "Please enter your name");
             return;
         }
-        if (txt_email.getText().isEmpty()) {
+        if (txt_email.getText().isEmpty() || !(txt_email.getText().matches("\\b[a-z0-9._-]+@[a-z0-9.-]+\\.[a-z]{2,}\\b"))) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Please enter your email");
+                    "Please enter your email correctly");
             return;
         }
 
@@ -69,9 +74,9 @@ public class SignUpController implements Initializable {
                     "Please enter an address");
             return;
         }
-        if (txt_phone.getText().isEmpty()) {
+        if (txt_phone.getText().isEmpty() || !(txt_phone.getText().matches("[0-9]+"))) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Please enter a phone");
+                    "Please enter your phone correctly");
             return;
         }
         // Saving our values in local variables

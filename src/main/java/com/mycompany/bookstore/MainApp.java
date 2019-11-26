@@ -12,8 +12,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 
 
 public class MainApp extends Application {
@@ -58,6 +60,15 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+/*        try{
+            URL iconURL = MainApp.class.getResource("/fxml/images/icons8-book-50.png");
+            Image image = new ImageIcon(iconURL).getImage();
+            com.apple.eawt.Application.getApplication(image);
+
+        } catch (Exception e){
+            //mac
+        }*/
         launch(args);
     }
 

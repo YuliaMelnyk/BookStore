@@ -61,14 +61,14 @@ public class LoginController implements Initializable {
         System.out.println(txt_email.getText());
         System.out.println(txt_password.getText());
 
-        if (txt_email.getText().isEmpty()) {
+        if (txt_email.getText().isEmpty() & (txt_email.getText().matches("\\b[a-z0-9._-]+@[a-z0-9.-]+\\.[a-z]{2,}\\b"))) {
             showAlert(AlertType.ERROR, owner, "Form Error!",
-                    "Please enter your email");
+                    "Please enter your email correctly");
             return;
         }
         if (txt_password.getText().isEmpty()) {
             showAlert(AlertType.ERROR, owner, "Form Error!",
-                    "Please enter a password");
+                    "Please enter a password correctly");
             return;
         }
         // Saving our values in local variables
@@ -113,7 +113,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        txt_password.setPromptText("Enter password");
+        txt_email.setPromptText("example@example.com");
     }
 
     // method to show a registration form (onclick button SignUp)
