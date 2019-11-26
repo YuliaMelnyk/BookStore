@@ -9,15 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+
 /**
  * @author andres
  */
-public class LoginDao {
+public class LoginDao extends Dao{
 
     // Put our database url, username and password in final variables
-    private static final String DATABASE_URL = "jdbc:mysql://85.214.120.213:3306/bookstoredam";
-    private static final String DATABASE_USERNAME = "bookstore";
-    private static final String DATABASE_PASSWORD = "1dam";
 
     // create query
     private static final String SELECT_QUERY = "SELECT * FROM user WHERE email = ? and password = ?";
@@ -60,7 +58,5 @@ public class LoginDao {
         }
     }
 
-    public static void printSQLException(SQLException ex) {
-        SignUpDao.getException(ex);
-    }
+
 }
