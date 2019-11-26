@@ -175,6 +175,7 @@
                 </TableView>
             </children>
         </AnchorPane>
+      <SplitPane prefHeight="200.0" prefWidth="200.0" />
     </children>
 
 </VBox>
