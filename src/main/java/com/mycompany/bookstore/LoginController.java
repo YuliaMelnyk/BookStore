@@ -10,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -21,7 +20,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import logic.User;
+import Entity.User;
+
+import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 
 /**
  * @author andres
@@ -50,7 +51,6 @@ public class LoginController implements Initializable {
     Scene scene2;
 
     User user;
-    HomePageController homePageController;
 
     //on Click event method
     @FXML
@@ -87,6 +87,7 @@ public class LoginController implements Initializable {
             infoBox("Please enter correct Email and Password", null, "Failed");
         } else {
             //infoBox("Login Successful!", null, "Success");
+            CurrentUserEmail = emailId;
             onSignInClick();
         }
     }
@@ -140,6 +141,5 @@ public class LoginController implements Initializable {
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
         stage.show();
-        //homePageController.showAdminButton(user.isAdmin());
     }
 }

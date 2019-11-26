@@ -1,4 +1,4 @@
-package logic;
+package Entity;
 
 public class Book {
     String ISBN;
