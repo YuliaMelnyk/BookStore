@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -36,6 +37,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add("/fxml/styles/style.css");
         
         stage.setTitle("Login Form");
+        stage.getIcons().add(new Image("/fxml/images/icons8-book-50.png"));
         stage.setScene(scene);
         stage.show();
 
