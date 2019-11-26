@@ -34,6 +34,7 @@ public class LoginDao extends Dao{
             System.out.println(preparedStatement);
 
             ResultSet resultSet = preparedStatement.executeQuery();
+
             if (resultSet.next()) {
                 return true;
             }

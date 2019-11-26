@@ -32,7 +32,7 @@ public class SignUpDao extends Dao {
             preparedStatement.setString(5, phone);
 
             preparedStatement.executeUpdate();
-            connection.close();
+
         } catch (SQLException e) {
             printSQLException(e);
         }

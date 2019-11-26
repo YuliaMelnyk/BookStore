@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<VBox id="vbox" alignment="TOP_CENTER" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.AdminPageController">
+<AnchorPane id="AdminPage" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.AdminPageController">
+<VBox id="vbox">
     <children>
         <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="562.0">
             <Label id="title" alignment="TOP_CENTER" layoutX="100.0" layoutY="115.0" prefHeight="43.0" prefWidth="200.0" text="Admin Page" textFill="#7a5465">
@@ -88,6 +90,19 @@
                 <Insets left="50.0" right="15.0" />
             </VBox.margin>
             <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Image" textFill="#7a5465">
+
+                </Label>
+                <TextField fx:id="txt_image" prefHeight="40.0" prefWidth="350.0" promptText="Image" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
                 <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Author" textFill="#7a5465">
 
                 </Label>
@@ -147,7 +162,7 @@
                     </font>
                 </JFXButton>
             </children>
-            <children>
+<!--            <children>
                 <JFXButton fx:id="btn_update" onAction="" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Update">
                     <font>
                         <Font size="13.0" />
@@ -160,7 +175,7 @@
                         <Font size="13.0" />
                     </font>
                 </JFXButton>
-            </children>
+            </children>-->
         </HBox>
 
 
@@ -179,3 +194,4 @@
     </children>
 
 </VBox>
+</AnchorPane>

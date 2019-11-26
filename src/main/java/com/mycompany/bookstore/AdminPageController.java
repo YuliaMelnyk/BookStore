@@ -1,12 +1,11 @@
 package com.mycompany.bookstore;
 
-import Dao.SignUpDao;
+import Dao.AdminPageDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
@@ -38,6 +37,9 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TextField txt_description;
+
+    @FXML
+    private TextField txt_image;
 
     @FXML
     private TextField txt_author;
@@ -115,8 +117,9 @@ public class AdminPageController implements Initializable {
         String isbn = txt_isbn.getText();
         String name = txt_name.getText();
         String genre = txt_genre.getText();
-        String price = txt_price.getText();
+        Float price = Float.parseFloat(txt_price.getText());
         String description = txt_description.getText();
+        String image = txt_image.getText();
         String author = txt_author.getText();
         String publisher = txt_publisher.getText();
         String year = txt_year.getText();
@@ -125,7 +128,7 @@ public class AdminPageController implements Initializable {
         //Create an object Dao and call his method to put in database our local variables
 
         AdminPageDao adminPageDao = new AdminPageDao();
-        adminPageDao.insertBook(isbn, name, genre, price, description, author, publisher, year, language);
+        adminPageDao.insertBook(isbn, name, genre, price, description, image, author, publisher, year, language);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
     }

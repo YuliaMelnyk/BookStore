@@ -79,6 +79,7 @@ public class HomePageController {
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
         stage.show();
-        showAdminButton(user.isAdmin());
+
+
     }
 }
