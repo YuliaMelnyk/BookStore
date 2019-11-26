@@ -33,6 +33,7 @@ public class SignUpDao {
             preparedStatement.setString(5, phone);
 
             preparedStatement.executeUpdate();
+            connection.close();
         } catch (SQLException e) {
             printSQLException(e);
         }
