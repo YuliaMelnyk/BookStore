@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import Entity.Book;
 import Entity.User;
@@ -23,12 +25,13 @@ import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 public class HomePageController {
 
     private User user;
+    private List<Book> bookList;
+    private int start;
     @FXML
     Hyperlink adminPageButton;
 
     @FXML
     AnchorPane homepage;
-    private List<Book> bookList;
 
 
     public void initialize() {
@@ -81,5 +84,36 @@ public class HomePageController {
         stage.show();
 
 
+    }
+
+    public GridPane addCardElement() {
+        GridPane gp = new GridPane();
+        gp.setVgap(30);
+        gp.setHgap(20);
+
+        int index = start;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+                if (index >= bookList.size()) {
+                    break;
+                }
+
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
+                    VBox hb = (VBox) loader.load();
+                    ElementCardController elementCardController = loader.getController();
+                    //elementCardController. (bookList.get(index));
+
+                    gp.add(hb, j, i);
+                    index++;
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return gp;
     }
 }

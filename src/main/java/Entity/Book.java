@@ -1,5 +1,10 @@
 package Entity;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 public class Book {
     String ISBN;
     String name;
@@ -10,6 +15,11 @@ public class Book {
     String publisher;
     int year;
     String language;
+    private List<String> images;
+
+    public Book(){
+        images = new LinkedList<>();
+    }
 
     //getters and setters
 
@@ -83,5 +93,19 @@ public class Book {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> slike) {
+        this.images = slike;
+    }
+
+
+    public String toString(){
+
+        return name;
+
     }
 }

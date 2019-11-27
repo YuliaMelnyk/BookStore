@@ -38,10 +38,10 @@ public class LoginDao extends Dao{
             if (resultSet.next()) {
                 return true;
             }
-
         } catch (SQLException e) {
             printSQLException(e);
         }
+
         return false;
     }
 

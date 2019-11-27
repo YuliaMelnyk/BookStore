@@ -67,7 +67,7 @@ public class MainApp extends Application {
             com.apple.eawt.Application.getApplication(image);
 
         } catch (Exception e){
-            //mac
+            //for mac OS/ dont work
         }*/
         launch(args);
     }
