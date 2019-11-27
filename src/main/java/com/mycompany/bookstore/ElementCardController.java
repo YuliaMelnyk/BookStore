@@ -40,7 +40,7 @@ public class ElementCardController implements Initializable {
         price.setText(book.getPrice() + " €");
     }
 
-
+    //When the costumer pressed in the image -> enter in the page Book.fxml
     @FXML
     void ImagePressed() {
         try {

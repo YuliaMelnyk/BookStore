@@ -116,7 +116,7 @@ public class AdminPageController implements Initializable {
         String isbn = txt_isbn.getText();
         String name = txt_name.getText();
         String genre = txt_genre.getText();
-        String price = txt_price.getText();
+        Float price = Float.parseFloat(txt_price.getText());
         String description = txt_description.getText();
         String author = txt_author.getText();
         String publisher = txt_publisher.getText();
@@ -126,7 +126,7 @@ public class AdminPageController implements Initializable {
         //Create an object Dao and call his method to put in database our local variables
 
         AdminPageDao adminPageDao = new AdminPageDao();
-        adminPageDao.insertBook(isbn, name, genre, price, description, author, publisher, year, language);
+        //adminPageDao.insertBook(isbn, name, genre, price, description, author, publisher, year, language);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
     }

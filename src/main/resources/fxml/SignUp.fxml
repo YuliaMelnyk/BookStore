@@ -13,18 +13,18 @@
     <children>
         <HBox alignment="CENTER">
             <Label fx:id="loginName" alignment="CENTER" prefHeight="44.0"
-                   prefWidth="350.0" text="REGISTRATION FORM    " textFill="#7a5465">
+                   prefWidth="350.0" text="       REGISTRATION FORM" textFill="#7a5465">
                 <font>
                     <Font size="25.0"/>
                 </font>
                 <VBox.margin>
-                    <Insets bottom="15.0" top="-35.0"/>
+                    <Insets bottom="15.0" left="35.0" top="-35.0"/>
                 </VBox.margin>
             </Label>
         </HBox>
-        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
             <VBox.margin>
-                <Insets left="50.0" right="15.0"/>
+                <Insets left="100.0" right="65.0"/>
             </VBox.margin>
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -35,9 +35,9 @@
                 <TextField fx:id="txt_name" prefHeight="40.0" prefWidth="350.0" promptText="Name"/>
             </children>
         </HBox>
-        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
             <VBox.margin>
-                <Insets left="50.0" right="15.0"/>
+                <Insets left="100.0" right="65.0"/>
             </VBox.margin>
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -48,9 +48,9 @@
                 <TextField fx:id="txt_email" prefHeight="40.0" prefWidth="350.0" promptText="Email"/>
             </children>
         </HBox>
-        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
             <VBox.margin>
-                <Insets left="50.0" right="15.0"/>
+                <Insets left="100.0" right="65.0"/>
             </VBox.margin>
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -61,9 +61,9 @@
                 <PasswordField fx:id="txt_password" prefHeight="40.0" prefWidth="350.0" promptText="Password"/>
             </children>
         </HBox>
-        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
             <VBox.margin>
-                <Insets left="50.0" right="15.0"/>
+                <Insets left="100.0" right="65.0"/>
             </VBox.margin>
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -76,7 +76,7 @@
         </HBox>
         <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
             <VBox.margin>
-                <Insets left="50.0" right="15.0"/>
+                <Insets left="100.0" right="65.0"/>
             </VBox.margin>
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
