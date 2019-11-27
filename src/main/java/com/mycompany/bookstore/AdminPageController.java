@@ -44,6 +44,9 @@ public class AdminPageController implements Initializable {
     private TextField txt_author;
 
     @FXML
+    private TextField txt_image;
+
+    @FXML
     private TextField txt_publisher;
 
     @FXML
@@ -119,6 +122,7 @@ public class AdminPageController implements Initializable {
         Float price = Float.parseFloat(txt_price.getText());
         String description = txt_description.getText();
         String author = txt_author.getText();
+        String image = txt_image.getText();
         String publisher = txt_publisher.getText();
         String year = txt_year.getText();
         String language = txt_language.getText();
@@ -126,7 +130,7 @@ public class AdminPageController implements Initializable {
         //Create an object Dao and call his method to put in database our local variables
 
         AdminPageDao adminPageDao = new AdminPageDao();
-        //adminPageDao.insertBook(isbn, name, genre, price, description, author, publisher, year, language);
+        adminPageDao.insertBook(isbn, name, genre, price, description, author, image, publisher, year, language);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
     }
