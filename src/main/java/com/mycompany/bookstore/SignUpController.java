@@ -3,13 +3,18 @@ package com.mycompany.bookstore;
 import Dao.SignUpDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -20,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
 
-
+    private static final String STYLESHEET = LoginController.class.getResource("/fxml//styles/alert.css").toExternalForm();
     @FXML
     private TextField txt_name;
 
@@ -38,6 +43,10 @@ public class SignUpController implements Initializable {
 
     @FXML
     private Button btn_signUp;
+
+    @FXML
+    VBox homePage;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txt_name.setPromptText("Enter username");
@@ -51,7 +60,7 @@ public class SignUpController implements Initializable {
 
     //on Click event method
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
+    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException, IOException {
         Window owner = btn_signUp.getScene().getWindow();
         if (txt_name.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
@@ -91,17 +100,33 @@ public class SignUpController implements Initializable {
 
         SignUpDao signUpDao = new SignUpDao();
         signUpDao.insertRecord(name, email, password, address, phone);
+
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
+        onRegistrationClick();
     }
 //method to show alert window
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
+        alert.getDialogPane().getStylesheets().add(STYLESHEET);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
+    }
+
+    public void onRegistrationClick() throws IOException {
+
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
+        homePage = loader2.load();
+        Scene scene = new Scene(homePage);
+        scene.getStylesheets().add("/fxml/styles/style.css");
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Home Page");
+        stage.setScene(scene);
+        stage.show();
     }
 }

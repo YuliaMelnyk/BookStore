@@ -10,19 +10,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import Entity.User;
 
 import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
+import static javafx.application.Application.getUserAgentStylesheet;
 
 /**
  * @author andres
@@ -40,10 +42,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button btn_signIn;
 
-
     @FXML
-    VBox homepage;
-
+    VBox homePage;
 
     @FXML
     private VBox vboxRegitration;
@@ -51,6 +51,9 @@ public class LoginController implements Initializable {
     Scene scene2;
 
     User user;
+
+    private static final String STYLESHEET = LoginController.class.getResource("/fxml//styles/alert.css").toExternalForm();
+
 
     //on Click event method
     @FXML
@@ -79,6 +82,8 @@ public class LoginController implements Initializable {
         //Create an object Dao and call his method to put in database our local variables
 
         LoginDao loginDao = new LoginDao();
+        user = loginDao.getUserByEmail(emailId);
+        String name = user.getName();
 
         //boolean for validate our values
         boolean flag = loginDao.validate(emailId, password);
@@ -86,15 +91,18 @@ public class LoginController implements Initializable {
         if (!flag) {
             infoBox("Please enter correct Email and Password", null, "Failed");
         } else {
-            infoBox("Login Successful!", null, "Success");
+
+            infoBox("Welcome back " + name, null, "Success!");
             CurrentUserEmail = emailId;
             onSignInClick();
+
         }
     }
     //method to show info window
 
     public static void infoBox(String infoMessage, String headerText, String title) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.getDialogPane().getStylesheets().add(STYLESHEET);
         alert.setContentText(infoMessage);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
@@ -128,18 +136,17 @@ public class LoginController implements Initializable {
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene2);
         stage.show();
-
     }
 
     public void onSignInClick() throws IOException {
 
-
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
-        homepage = loader2.load();
-        Scene scene = new Scene(homepage);
+        homePage = loader2.load();
+        Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Home Page");
         stage.setScene(scene);
         stage.show();
     }

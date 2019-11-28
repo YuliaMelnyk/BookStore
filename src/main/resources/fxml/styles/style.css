@@ -55,3 +55,9 @@
 #labelName{
     -fx-font-family: "Courier New";
 }
+.borderPane{
+    -fx-background-color: #ECECEC;
+}
+.labelName{
+    -fx-text-fill: #7a5465;
+}

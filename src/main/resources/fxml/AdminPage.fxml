@@ -7,16 +7,16 @@
 <?import javafx.scene.text.*?>
 <?import javafx.stage.FileChooser?>
 
-<VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.AdminPageController">
+<VBox fx:id="adminVBox" alignment="TOP_CENTER" prefHeight="570.0" prefWidth="570.0"
+      stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.AdminPageController">
     <children>
         <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="562.0">
             <Label id="title" alignment="TOP_CENTER" layoutX="100.0" layoutY="115.0" prefHeight="43.0" prefWidth="200.0" text="Admin Page" textFill="#7a5465">
                 <font>
                     <Font size="35.0" />
                 </font>
-
             </Label>
-
         </HBox>
         <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
             <VBox.margin>
@@ -166,14 +166,14 @@
                 </JFXButton>
             </children>
             <children>
-                <JFXButton fx:id="btn_update" onAction="" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Update">
+                <JFXButton fx:id="btn_update" onAction="#updateBook" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Update">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </JFXButton>
             </children>
             <children>
-                <JFXButton fx:id="btn_delete" onAction="" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Delete">
+                <JFXButton fx:id="btn_delete" onAction="#deleteBook" prefHeight="47.0" prefWidth="92.0" styleClass="pink-btn" stylesheets="@styles/style.css" text="Delete">
                     <font>
                         <Font size="13.0" />
                     </font>

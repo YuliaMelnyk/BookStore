@@ -47,21 +47,14 @@ public class HomePageController implements Initializable {
     Hyperlink adminPageButton;
 
     @FXML
-    AnchorPane homepage;
-    @FXML
     ImageView bookImage;
 
     @FXML
-    VBox vbox;
+    VBox adminVBox, homePage, cartBox;
 
     @FXML
-    VBox homePage;
-    @FXML
-    VBox cartBox;
-
-
-@FXML
     BorderPane borderPaneBook;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -89,25 +82,26 @@ public class HomePageController implements Initializable {
     }
 
     public void gotoAdminPage() throws IOException {
+
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/AdminPage.fxml"));
-        homePage = loader2.load();
-        Scene scene = new Scene(homePage);
+        adminVBox = loader2.load();
+        Scene scene = new Scene(adminVBox);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Admin Page");
         stage.setScene(scene);
-        stage.setTitle("AdminPage");
         stage.show();
     }
 
     public void gotoAccountPage() throws IOException {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
-        homepage = loader2.load();
-        Scene scene = new Scene(homepage);
+        homePage = loader2.load();
+        Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
-        stage.setTitle("Home Page");
+        stage.setTitle("My Account");
         stage.setScene(scene);
         stage.show();
     }
@@ -124,19 +118,13 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
-    public void showAdminButton(boolean isAdmin) {
-        if (isAdmin) {
-            adminPageButton.setVisible(true);
-        }
-    }
-
     // Create a new scene for a window
 
     public void switchScenes(String url) throws IOException {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource(url));
-        homepage = loader2.load();
-        Scene scene = new Scene(homepage);
+        homePage = loader2.load();
+        Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
@@ -162,9 +150,9 @@ public class HomePageController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
                     VBox hb = (VBox) loader.load();
                     //bookList = bookDao.findBooksByISBN(CurrentBookISBN);
-                    ((Text)loader.getNamespace().get("name")).setText("name");
-                    ((Text)loader.getNamespace().get("image")).setText("image");
-                    ((Text)loader.getNamespace().get("price")).setText("price");
+                    ((Text) loader.getNamespace().get("name")).setText("name");
+                    ((Text) loader.getNamespace().get("image")).setText("image");
+                    ((Text) loader.getNamespace().get("price")).setText("price");
                     //ElementCardController elementCardController = loader.getController();
                     //elementCardController. (bookList.get(index));
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
@@ -203,7 +191,6 @@ public class HomePageController implements Initializable {
             ex.printStackTrace();
         }
     }
-
 
 
 }

@@ -11,7 +11,7 @@
 <VBox fx:id="cartBox" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.mycompany.bookstore.CartController"
-      prefHeight="400.0" prefWidth="600.0" fillWidth="false" spacing="8.0" stylesheets="@styles/style.css">
+      prefHeight="570.0" prefWidth="579.0" fillWidth="false" spacing="8.0" stylesheets="@styles/style.css">
     <padding>
         <Insets left="16.0" right="16.0" />
     </padding>
@@ -29,7 +29,7 @@
                 <Insets bottom="8.0" />
             </padding>
         </Separator>
-        <TableView fx:id="cartTable" prefHeight="300.0" prefWidth="500.0">
+        <TableView fx:id="cartTable" prefHeight="400.0" prefWidth="500.0">
             <columns>
                 <TableColumn fx:id="titleCol" editable="false" prefWidth="250.0" resizable="false" sortable="false" style="-fx-alignment: center-left;" text="TITLE" />
                 <TableColumn fx:id="priceCol" editable="false" prefWidth="100.0" resizable="false" sortable="false" style="-fx-alignment: center;" text="QUANTITY" />
@@ -39,20 +39,20 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <HBox spacing="8.0">
+        <HBox prefWidth="500.0" spacing="10.0">
             <padding>
-                <Insets bottom="8.0" top="8.0" />
+                <Insets bottom="8.0" top="8.0" right="10.0"/>
             </padding>
             <children>
-                <Button mnemonicParsing="false" onAction="#continueShopping" styleClass="my-button" text="Continue Shopping" />
-                <Button layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#proceedToCheckout" styleClass="my-button" text="Checkout" />
-                <Pane prefWidth="250.0" HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" onAction="#continueShopping" styleClass="pink-btn" text="Continue Shopping" />
+                <Button layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#proceedToCheckout" styleClass="pink-btn" text="Checkout" />
+                <Pane prefWidth="120.0" />
                 <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Subtotal:">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="subtotalLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label">
+                <Label fx:id="subtotalLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="10.99">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>

@@ -2,6 +2,7 @@ package com.mycompany.bookstore;
 
 import Dao.AdminPageDao;
 import Dao.SignUpDao;
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,16 +19,13 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-
 public class AdminPageController implements Initializable {
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
+
     //inject  values defined in an FXML file into references
 
-    private byte [] image;
+    private byte[] image;
 
     @FXML
     private TextField txt_isbn;
@@ -48,7 +46,6 @@ public class AdminPageController implements Initializable {
     private TextField txt_author;
 
 
-
     @FXML
     private TextField txt_publisher;
 
@@ -62,30 +59,39 @@ public class AdminPageController implements Initializable {
     private Button btn_add;
 
     @FXML
-    private Button btn_image;
+    private JFXButton btn_image;
 
     @FXML
-    private Button btn_update;
+    private JFXButton btn_update;
 
     @FXML
-    private Button btn_delete;
+    private JFXButton btn_delete;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 
     @FXML
     public void handleChooseFile(ActionEvent event) throws SQLException, IOException {
         FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg *.png)", "*.jpg","*.png");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg *.png)", "*.jpg", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(MainApp.getPrimaryStage());
         image = Files.readAllBytes(file.toPath());
 
 
+    }
 
-
-
+    @FXML
+    public void updateBook() {
 
     }
 
+    @FXML
+    public void deleteBook() {
 
+    }
 
     //on Click event method
     @FXML
@@ -166,6 +172,5 @@ public class AdminPageController implements Initializable {
         alert.initOwner(owner);
         alert.show();
     }
-
 
 }

@@ -27,11 +27,11 @@
         </ImageView>
         <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
-                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                     <children>
-                        <Label fx:id="name" text="Name">
+                        <Label fx:id="name" text="Name" textFill="#7a5465">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="18.0"/>
                             </font>
                         </Label>
                         <Label fx:id="price" text="Price">
