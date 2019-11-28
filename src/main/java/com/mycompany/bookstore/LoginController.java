@@ -128,7 +128,6 @@ public class LoginController implements Initializable {
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene2);
         stage.show();
-        stage.show();
     }
 
     public void onSignInClick() throws IOException {

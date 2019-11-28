@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="homepage" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+<VBox fx:id="homePage" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.HomePageController">
 
     <BorderPane id="borderMenu">
@@ -95,36 +95,41 @@
     </BorderPane>
 
 
-    <GridPane alignment="CENTER_RIGHT" prefHeight="320.0" prefWidth="247.0">
+    <GridPane fx:id="gridPane" alignment="CENTER_RIGHT" prefHeight="320.0" prefWidth="247.0">
         <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="80.0"/>
         </padding>
-        <children>
-            <VBox>
-                <Label id="bookName" text="#nombre">
-                    <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
-                    </padding>
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-
-                <ImageView fitHeight="350.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/9780596009205.jpg"/>
-                    </image>
-                </ImageView>
-
+        <VBox>
+            <ImageView fx:id="bookImage" fitHeight="280.0" fitWidth="229.0" onMouseClicked="#ImagePressed"
+                       pickOnBounds="true">
+                <image>
+                    <Image url="@images/9780596009205.jpg"/>
+                </image>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+                <children>
+                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                            <Label fx:id="nameBook" text="Name">
+                                <font>
+                                    <Font size="14.0"/>
+                                </font>
+                            </Label>
+                            <Label fx:id="priceBook" text="Price">
+                                <font>
+                                    <Font name="System Bold" size="14.0"/>
+                                </font>
+                            </Label>
+                        </children>
+                    </VBox>
+                </children>
             </VBox>
-        </children>
-        <columnConstraints>
-            <ColumnConstraints/>
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints/>
-        </rowConstraints>
+        </VBox>
+
     </GridPane>
 
 
-</AnchorPane>
+</VBox>

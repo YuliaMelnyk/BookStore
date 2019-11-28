@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 
 public abstract class Dao {
-    protected static final String DATABASE_URL = "jdbc:mysql://85.214.120.213:3306/bookstoredam";
-    protected static final String DATABASE_USERNAME = "bookstore";
-    protected static final String DATABASE_PASSWORD = "1dam";
+    protected static final String DATABASE_URL = "jdbc:mysql://localhost:3306/Books";
+    protected static final String DATABASE_USERNAME = "root";
+    protected static final String DATABASE_PASSWORD = "Proroknsg12";
 
     public static void getException(SQLException ex) {
         for (Throwable e : ex) {

@@ -25,9 +25,8 @@ public class LoginDao extends Dao{
 
     public boolean validate(String emailId, String password) throws SQLException {
 
-        try (Connection connection = DriverManager
-            .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-    PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY)) {
+        Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY)) {
         preparedStatement.setString(1, emailId);
         preparedStatement.setString(2, password);
 
@@ -38,10 +37,11 @@ public class LoginDao extends Dao{
         if (resultSet.next()) {
             return true;
         }
-    } catch (SQLException e) {
+        } catch (SQLException e) {
         printSQLException(e);
-    }
-
+    }finally {
+            connection.close();
+        }
         return false;
 }
 

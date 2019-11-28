@@ -1,5 +1,6 @@
 package com.mycompany.bookstore;
 
+import Dao.BookDao;
 import Dao.LoginDao;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -22,6 +25,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.mycompany.bookstore.MainApp.CurrentBookISBN;
 import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 
 /**
@@ -34,6 +38,7 @@ public class HomePageController implements Initializable {
     private Book book;
     private List<Book> bookList;
     private int start;
+    private BookDao bookDao;
 
     @FXML
     GridPane gridPane;
@@ -49,7 +54,14 @@ public class HomePageController implements Initializable {
     @FXML
     VBox vbox;
 
+    @FXML
+    VBox homePage;
+    @FXML
+    VBox cartBox;
 
+
+@FXML
+    BorderPane borderPaneBook;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -57,11 +69,12 @@ public class HomePageController implements Initializable {
         try {
             //check for email user and if he is Admin, put
             User user = loginDao.getUserByEmail(CurrentUserEmail);
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
             VBox hb = (VBox) loader.load();
 
             gridPane.add(hb, 0, 0);
-
+            //addCardElement();
             if (user.isAdmin()) {
                 adminPageButton.setVisible(true);
             }
@@ -78,21 +91,37 @@ public class HomePageController implements Initializable {
     public void gotoAdminPage() throws IOException {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/AdminPage.fxml"));
-        vbox = loader2.load();
-        Scene scene = new Scene(vbox);
+        homePage = loader2.load();
+        Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
+        stage.setTitle("AdminPage");
         stage.show();
-
     }
 
     public void gotoAccountPage() throws IOException {
-        switchScenes("/fxml/HomePage.fxml");
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
+        homepage = loader2.load();
+        Scene scene = new Scene(homepage);
+        scene.getStylesheets().add("/fxml/styles/style.css");
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Home Page");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void gotoCartPage() throws IOException {
-        switchScenes("/fxml/HomePage.fxml");
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(getClass().getResource("/fxml/Cart.fxml"));
+        cartBox = loader2.load();
+        Scene scene = new Scene(cartBox);
+        scene.getStylesheets().add("/fxml/styles/style.css");
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Home Page");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void showAdminButton(boolean isAdmin) {
@@ -112,8 +141,6 @@ public class HomePageController implements Initializable {
         Stage stage = MainApp.getPrimaryStage();
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     public GridPane addCardElement() {
@@ -134,7 +161,11 @@ public class HomePageController implements Initializable {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
                     VBox hb = (VBox) loader.load();
-                    ElementCardController elementCardController = loader.getController();
+                    //bookList = bookDao.findBooksByISBN(CurrentBookISBN);
+                    ((Text)loader.getNamespace().get("name")).setText("name");
+                    ((Text)loader.getNamespace().get("image")).setText("image");
+                    ((Text)loader.getNamespace().get("price")).setText("price");
+                    //ElementCardController elementCardController = loader.getController();
                     //elementCardController. (bookList.get(index));
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
@@ -147,15 +178,32 @@ public class HomePageController implements Initializable {
                 }
             }
         }
-
         return gp;
     }
 
     @FXML
-    void gotoBookpage() {
+    void ImagePressed() {
+
         String bookISBN = book.getISBN();
         MainApp.CurrentBookISBN = bookISBN;
+
+        try {
+            FXMLLoader loader2 = new FXMLLoader();
+            loader2.setLocation(getClass().getResource("/fxml/Book.fxml"));
+            borderPaneBook = loader2.load();
+            Scene scene2 = new Scene(borderPaneBook);
+
+            scene2.getStylesheets().add("/fxml/styles/style.css");
+            Stage stage = MainApp.getPrimaryStage();
+            stage.setScene(scene2);
+            stage.show();
+            stage.show();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
+
 
 
 }

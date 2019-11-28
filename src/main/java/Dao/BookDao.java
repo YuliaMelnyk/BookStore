@@ -15,7 +15,8 @@ public class BookDao extends Dao {
 
     public boolean selectBook() throws SQLException {
 
-        try {Connection connection = DriverManager
+        try {
+            Connection connection = DriverManager
                 .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
             preparedStatement = connection.prepareStatement(SELECT_QUERY_BOOKS);
 

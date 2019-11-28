@@ -8,7 +8,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-<VBox xmlns="http://javafx.com/javafx"
+<VBox fx:id="cartBox" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.mycompany.bookstore.CartController"
       prefHeight="400.0" prefWidth="600.0" fillWidth="false" spacing="8.0" stylesheets="@styles/style.css">
