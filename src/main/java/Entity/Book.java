@@ -11,9 +11,10 @@ public class Book {
     String genre;
     float price;
     String description;
+    String image;
     String author;
     String publisher;
-    int year;
+    String year;
     String language;
     private List<String> images;
 
@@ -21,7 +22,31 @@ public class Book {
         images = new LinkedList<>();
     }
 
+    public Book(String isbn, String name, String genre, float price,
+                String description, String image, String author,
+                String publisher, String year, String language) {
+        this.ISBN = isbn;
+        this.name = name;
+        this.genre = genre;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.author = author;
+        this.publisher = publisher;
+        this.year = year;
+        this.language = language;
+    }
+
     //getters and setters
+
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getISBN() {
         return ISBN;
@@ -79,11 +104,11 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -103,9 +128,7 @@ public class Book {
     }
 
 
-    public String toString(){
-
+/*    public String toString(){
         return name;
-
-    }
+    }*/
 }

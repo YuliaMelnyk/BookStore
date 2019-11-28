@@ -43,6 +43,10 @@ public class ElementCardController implements Initializable {
     //When the costumer pressed in the image -> enter in the page Book.fxml
     @FXML
     void ImagePressed() {
+
+        String bookISBN = book.getISBN();
+        MainApp.CurrentBookISBN = bookISBN;
+
         try {
             FXMLLoader loader2 = new FXMLLoader();
             loader2.setLocation(getClass().getResource("/fxml/Book.fxml"));
@@ -51,15 +55,15 @@ public class ElementCardController implements Initializable {
 
 
             BookController pc = loader2.getController();
-            pc.postBook(book);
+            //pc.postBook(book);
 
             scene2.getStylesheets().add("/fxml/styles/style.css");
             Stage stage = MainApp.getPrimaryStage();
             stage.setScene(scene2);
             stage.show();
             stage.show();
-             /*   MainApp.scene2.setRoot(root);
-                Main.window.show();*/
+                //MainApp.scene2.setRoot(root);
+                //MainApp.window.show();*//*
 
         } catch (Exception ex) {
             ex.printStackTrace();

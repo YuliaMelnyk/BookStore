@@ -42,7 +42,7 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    AnchorPane homepage;
+    VBox homepage;
 
 
     @FXML
@@ -86,7 +86,7 @@ public class LoginController implements Initializable {
         if (!flag) {
             infoBox("Please enter correct Email and Password", null, "Failed");
         } else {
-            //infoBox("Login Successful!", null, "Success");
+            infoBox("Login Successful!", null, "Success");
             CurrentUserEmail = emailId;
             onSignInClick();
         }

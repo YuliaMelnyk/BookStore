@@ -20,6 +20,7 @@ import java.net.URL;
 
 public class MainApp extends Application {
     public static String CurrentUserEmail;
+    public static String CurrentBookISBN;
 
     private static Stage pStage;
 

@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -30,21 +31,16 @@ public class BookController implements Initializable {
     private VBox vBox;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
     }
 
-    //mothod to add book in the cart from onCklick in the button
+    //method to add book in the cart from onCklick in the button
     public void addToCart() {
 
     }
 
-    public void postBook(Book p) {
 
-        for (String image : p.getImages()) {
-            System.out.println(image);
-        }
-    }
 }
