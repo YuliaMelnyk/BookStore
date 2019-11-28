@@ -5,6 +5,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.stage.FileChooser?>
+
 <VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="570.0" prefWidth="570.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.AdminPageController">
     <children>
         <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="562.0">
@@ -78,6 +80,23 @@
 
                 </Label>
                 <TextField fx:id="txt_description" prefHeight="40.0" prefWidth="350.0" promptText="Description" />
+
+            </children>
+
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="200.0" styleClass="tf-box">
+            <VBox.margin>
+                <Insets left="50.0" right="15.0" />
+            </VBox.margin>
+            <children>
+                <Label id="title" alignment="CENTER_LEFT" layoutX="25.0" layoutY="115.0" prefHeight="44.0" prefWidth="200.0" text="Imagen" textFill="#7a5465">
+
+                </Label>
+                <JFXButton fx:id="btn_image" onAction="#handleChooseFile" prefHeight="47.0" prefWidth="92.0" styleClass="btn" stylesheets="@styles/style.css" text="Añadir imagen">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXButton>
 
             </children>
 

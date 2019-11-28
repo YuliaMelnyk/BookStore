@@ -5,13 +5,15 @@ import Dao.SignUpDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Window;
+import javafx.stage.FileChooser;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -24,6 +26,8 @@ public class AdminPageController implements Initializable {
 
     }
     //inject  values defined in an FXML file into references
+
+    private byte [] image;
 
     @FXML
     private TextField txt_isbn;
@@ -43,8 +47,7 @@ public class AdminPageController implements Initializable {
     @FXML
     private TextField txt_author;
 
-    @FXML
-    private TextField txt_image;
+
 
     @FXML
     private TextField txt_publisher;
@@ -59,10 +62,30 @@ public class AdminPageController implements Initializable {
     private Button btn_add;
 
     @FXML
+    private Button btn_image;
+
+    @FXML
     private Button btn_update;
 
     @FXML
     private Button btn_delete;
+
+    @FXML
+    public void handleChooseFile(ActionEvent event) throws SQLException, IOException {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg *.png)", "*.jpg","*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(MainApp.getPrimaryStage());
+        image = Files.readAllBytes(file.toPath());
+
+
+
+
+
+
+    }
+
+
 
     //on Click event method
     @FXML
@@ -122,7 +145,7 @@ public class AdminPageController implements Initializable {
         Float price = Float.parseFloat(txt_price.getText());
         String description = txt_description.getText();
         String author = txt_author.getText();
-        String image = txt_image.getText();
+
         String publisher = txt_publisher.getText();
         String year = txt_year.getText();
         String language = txt_language.getText();
@@ -130,7 +153,7 @@ public class AdminPageController implements Initializable {
         //Create an object Dao and call his method to put in database our local variables
 
         AdminPageDao adminPageDao = new AdminPageDao();
-        adminPageDao.insertBook(isbn, name, genre, price, description, author, image, publisher, year, language);
+        adminPageDao.insertBook(isbn, name, genre, price, description, image, author, publisher, year, language);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
     }
@@ -143,4 +166,6 @@ public class AdminPageController implements Initializable {
         alert.initOwner(owner);
         alert.show();
     }
+
+
 }
