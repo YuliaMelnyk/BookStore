@@ -142,6 +142,7 @@ public class HomePageController implements Initializable {
             index++;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
             VBox hb = (VBox) loader.load();
+            hb.setMinHeight(500);
 
             ((Label) loader.getNamespace().get("name")).setText(book.getName());
 

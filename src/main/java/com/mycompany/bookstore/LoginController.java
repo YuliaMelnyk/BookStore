@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.LoginDao;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -43,12 +45,15 @@ public class LoginController implements Initializable {
     private Button btn_signIn;
 
     @FXML
-    VBox homePage;
+    private VBox homePage;
     @FXML
-    GridPane gridPane;
-
+    private GridPane gridPane;
+    @FXML
+    private VBox homeVBox;
     @FXML
     private VBox vboxRegitration;
+/*    @FXML
+    private ScrollPane scrollPane;*/
 
     Scene scene2;
 
@@ -147,11 +152,9 @@ public class LoginController implements Initializable {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
         homePage = loader2.load();
-        homePage.setMinHeight(500);
+        /*homePage.setMinHeight(500);
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setContent(gridPane);
-        scrollPane.fitToHeightProperty().set(true);
-        scrollPane.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.setContent(homePage);*/
         Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
