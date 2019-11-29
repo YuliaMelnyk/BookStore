@@ -34,19 +34,19 @@
     -fx-text-fill: #fff;
 }
 #buttons:selected{
-    -fx-background-color: green;
+    -fx-background-color: #f78c7b;
 }
 .btn{
     -fx-text-fill: #fff;
 }
 .btn:hover{
-    -fx-background-color: #00c853;
-    -fx-text-fill: #fff;
+    -fx-background-color: #f78c7b;
+    -fx-text-fill: #000;
     -fx-text-alignment: center;
 }
 .btn:focused{
     -fx-background-color: rgba(0,0,0,0.3);
-    -fx-text-fill: #fff;
+    -fx-text-fill: #000;
 }
 .focused{
     -fx-background-color: rgba(0,0,0,0.3);

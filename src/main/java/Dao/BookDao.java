@@ -50,6 +50,7 @@ public class BookDao extends Dao {
                 Book book = new Book();
                 book.setISBN((String) resultSet.getObject(1));
                 book.setName((String) resultSet.getObject(2));
+                book.setPrice((Float) resultSet.getObject(4));
                 results.add(book);
                 /*results.add(new Book(
                         resultSet.getString("isbn"),

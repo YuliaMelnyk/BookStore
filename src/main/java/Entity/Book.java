@@ -127,8 +127,4 @@ public class Book {
         this.images = slike;
     }
 
-
-/*    public String toString(){
-        return name;
-    }*/
 }

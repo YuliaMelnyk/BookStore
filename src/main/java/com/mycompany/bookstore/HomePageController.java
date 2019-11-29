@@ -144,7 +144,10 @@ public class HomePageController implements Initializable {
             VBox hb = (VBox) loader.load();
             hb.setMinHeight(500);
 
+
             ((Label) loader.getNamespace().get("name")).setText(book.getName());
+            String price = String.valueOf(book.getPrice());
+            ((Label) loader.getNamespace().get("price")).setText(price);
 
             gridPane.add(hb, 0, index);
         }
@@ -163,8 +166,6 @@ public class HomePageController implements Initializable {
                     //elementCardController. (bookList.get(index));
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
-
-
                     index++;
 
                 } catch (Exception e) {
