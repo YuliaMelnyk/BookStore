@@ -33,21 +33,25 @@ public class BookDao extends Dao {
     }
 
     //Selects Books with ISBN
-    public List<Book> findBooksByISBN(String ISBN) {
-        List<Book> results = null;
+    public ArrayList<Book> findBooks() {
+        ArrayList<Book> results = new ArrayList<>();
         ResultSet resultSet = null;
 
         try {
-            preparedStatement.setString(1, ISBN);
-
+            Connection connection = DriverManager
+                    .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+            preparedStatement = connection.prepareStatement(SELECT_QUERY_BOOKS);
             // executeQuery returns a ResultSet that contains the desired records
             resultSet = preparedStatement.executeQuery();
 
             //results = new ArrayList<Book>();
-            Book book = new Book();
+
             while(resultSet.next()) {
+                Book book = new Book();
                 book.setISBN((String) resultSet.getObject(1));
-                results.add(new Book(
+                book.setName((String) resultSet.getObject(2));
+                results.add(book);
+                /*results.add(new Book(
                         resultSet.getString("isbn"),
                         resultSet.getString("name"),
                         resultSet.getString("genre"),
@@ -57,7 +61,7 @@ public class BookDao extends Dao {
                         resultSet.getString("author"),
                         resultSet.getString("publisher"),
                         resultSet.getString("year"),
-                        resultSet.getString("language")));
+                        resultSet.getString("language")));*/
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
@@ -67,10 +71,9 @@ public class BookDao extends Dao {
             } catch (SQLException sqlException) {
                 sqlException.printStackTrace();
             }
+
+            return results;
         }
-
-        return results;
     }
-
 }
 

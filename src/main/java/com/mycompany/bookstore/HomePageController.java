@@ -63,11 +63,7 @@ public class HomePageController implements Initializable {
             //check for email user and if he is Admin, put
             User user = loginDao.getUserByEmail(CurrentUserEmail);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
-            VBox hb = (VBox) loader.load();
-
-            gridPane.add(hb, 0, 0);
-            //addCardElement();
+            addCardElements();
             if (user.isAdmin()) {
                 adminPageButton.setVisible(true);
             }
@@ -131,7 +127,7 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
-    public GridPane addCardElement() {
+    public void addCardElements() throws IOException {
         //gridPane.add();
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
 
@@ -139,18 +135,27 @@ public class HomePageController implements Initializable {
         gp.setVgap(300);
         gp.setHgap(200);
 
-        int index = start;
-        for (int i = 0; i < bookList.size(); i++) {
+        int index = -1;
+        bookDao = new BookDao();
+        bookList = bookDao.findBooks();
+        for (Book book : bookList) {
+            index++;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
+            VBox hb = (VBox) loader.load();
+
+            ((Label) loader.getNamespace().get("name")).setText(book.getName());
+
+            gridPane.add(hb, 0, index);
+        }
+
+        /*for (int i = 0; i < bookList.size(); i++) {
             for (int j = 0; j < bookList.size(); j++) {
 
                 if (index >= bookList.size()) {
                     break;
                 }
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
-                    VBox hb = (VBox) loader.load();
-                    //bookList = bookDao.findBooksByISBN(CurrentBookISBN);
-                    ((Text) loader.getNamespace().get("name")).setText("name");
+
                     ((Text) loader.getNamespace().get("image")).setText("image");
                     ((Text) loader.getNamespace().get("price")).setText("price");
                     //ElementCardController elementCardController = loader.getController();
@@ -158,15 +163,14 @@ public class HomePageController implements Initializable {
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
                     //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
 
-                    gridPane.add(hb, j, i);
+
                     index++;
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        }
-        return gp;
+        }*/
     }
 
     @FXML

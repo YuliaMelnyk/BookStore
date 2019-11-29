@@ -6,18 +6,18 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.LoginDao;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -44,6 +44,8 @@ public class LoginController implements Initializable {
 
     @FXML
     VBox homePage;
+    @FXML
+    GridPane gridPane;
 
     @FXML
     private VBox vboxRegitration;
@@ -51,6 +53,8 @@ public class LoginController implements Initializable {
     Scene scene2;
 
     User user;
+
+    final ScrollBar sc = new ScrollBar();
 
     private static final String STYLESHEET = LoginController.class.getResource("/fxml//styles/alert.css").toExternalForm();
 
@@ -143,6 +147,11 @@ public class LoginController implements Initializable {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
         homePage = loader2.load();
+        homePage.setMinHeight(500);
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(gridPane);
+        scrollPane.fitToHeightProperty().set(true);
+        scrollPane.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
         Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
