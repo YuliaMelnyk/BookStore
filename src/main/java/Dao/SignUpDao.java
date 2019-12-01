@@ -6,14 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * @author yuliiamelnyk
+ * @author andrescabrera, yuliiamelnyk
  */
 public class SignUpDao extends Dao {
-
-    // Put our database url, username and password in final variables
-
-
-
 
     // create query
     private static final String QUERY = "INSERT INTO user (name , email, password, address, phone ) VALUES (?, ?, ?, ?, ?)";

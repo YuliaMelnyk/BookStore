@@ -8,8 +8,7 @@ package Entity;
 import java.util.UUID;
 
 /**
- *
- * @author serhiimelnyk
+ * @author andrescabrera, yuliiamelnyk
  */
 public class User {
 

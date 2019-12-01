@@ -1,7 +1,9 @@
 package com.mycompany.bookstore;
 
 import Dao.SignUpDao;
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -20,7 +24,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
- * @author yuliiamelnyk
+ * @author andrescabrera, yuliiamelnyk
  */
 
 public class SignUpController implements Initializable {
@@ -45,7 +49,12 @@ public class SignUpController implements Initializable {
     private Button btn_signUp;
 
     @FXML
-    VBox homePage;
+    private VBox homePage;
+
+    @FXML
+    private ImageView backToLogin;
+    @FXML
+    private VBox LoginVBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,8 +64,19 @@ public class SignUpController implements Initializable {
         txt_address.setPromptText("Enter address");
         txt_phone.setPromptText("123456789");
     }
-    //inject  values defined in an FXML file into references
 
+    @FXML
+    public void onBackToLoginclicked() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/Login.fxml"));
+        LoginVBox = loader.load();
+        Scene scene = new Scene(LoginVBox);
+        scene.getStylesheets().add("/fxml/styles/style.css");
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Login Page");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //on Click event method
     @FXML

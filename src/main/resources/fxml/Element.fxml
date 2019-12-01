@@ -29,6 +29,7 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                     <children>
+                        <Label fx:id="isbn" visible="false"></Label>
                         <Label fx:id="name" text="Name" textFill="#7a5465">
                             <font>
                                 <Font size="18.0"/>

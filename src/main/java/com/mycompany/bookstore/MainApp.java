@@ -17,14 +17,14 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
-
+/**
+ * @author andrescabrera, yuliiamelnyk
+ */
 public class MainApp extends Application {
     public static String CurrentUserEmail;
     public static String CurrentBookISBN;
 
     private static Stage pStage;
-
-
 
     //start application with login form
 

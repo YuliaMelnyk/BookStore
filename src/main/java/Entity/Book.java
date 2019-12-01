@@ -5,13 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author andrescabrera, yuliiamelnyk
+ */
 public class Book {
     String ISBN;
     String name;
     String genre;
     float price;
     String description;
-    String image;
+    byte image;
     String author;
     String publisher;
     String year;
@@ -23,7 +26,7 @@ public class Book {
     }
 
     public Book(String isbn, String name, String genre, float price,
-                String description, String image, String author,
+                String description, byte image, String author,
                 String publisher, String year, String language) {
         this.ISBN = isbn;
         this.name = name;
@@ -40,11 +43,11 @@ public class Book {
     //getters and setters
 
 
-    public String getImage() {
+    public byte getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte image) {
         this.image = image;
     }
 
@@ -72,7 +75,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 

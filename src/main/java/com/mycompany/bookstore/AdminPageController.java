@@ -5,8 +5,12 @@ import Dao.SignUpDao;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.FileChooser;
 
@@ -18,9 +22,11 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * @author andrescabrera, yuliiamelnyk
+ */
 
 public class AdminPageController implements Initializable {
-
 
 
     //inject  values defined in an FXML file into references
@@ -45,7 +51,6 @@ public class AdminPageController implements Initializable {
     @FXML
     private TextField txt_author;
 
-
     @FXML
     private TextField txt_publisher;
 
@@ -67,6 +72,9 @@ public class AdminPageController implements Initializable {
     @FXML
     private JFXButton btn_delete;
 
+    @FXML
+    private VBox homePage;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -80,7 +88,6 @@ public class AdminPageController implements Initializable {
         File file = fileChooser.showOpenDialog(MainApp.getPrimaryStage());
         image = Files.readAllBytes(file.toPath());
 
-
     }
 
     @FXML
@@ -91,6 +98,19 @@ public class AdminPageController implements Initializable {
     @FXML
     public void deleteBook() {
 
+    }
+
+    @FXML
+    public void onBackcToHomelicked() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
+        homePage = loader.load();
+        Scene scene = new Scene(homePage);
+        scene.getStylesheets().add("/fxml/styles/style.css");
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Home Page");
+        stage.setScene(scene);
+        stage.show();
     }
 
     //on Click event method

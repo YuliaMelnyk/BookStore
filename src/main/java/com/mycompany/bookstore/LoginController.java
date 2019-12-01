@@ -29,7 +29,7 @@ import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 import static javafx.application.Application.getUserAgentStylesheet;
 
 /**
- * @author andres
+ * @author andrescabrera, yuliiamelnyk
  */
 public class LoginController implements Initializable {
 
@@ -46,23 +46,17 @@ public class LoginController implements Initializable {
 
     @FXML
     private VBox homePage;
-    @FXML
-    private GridPane gridPane;
-    @FXML
-    private VBox homeVBox;
+
     @FXML
     private VBox vboxRegitration;
-/*    @FXML
-    private ScrollPane scrollPane;*/
 
     Scene scene2;
 
     User user;
 
-    final ScrollBar sc = new ScrollBar();
 
+//styles for info window
     private static final String STYLESHEET = LoginController.class.getResource("/fxml//styles/alert.css").toExternalForm();
-
 
     //on Click event method
     @FXML
@@ -152,9 +146,6 @@ public class LoginController implements Initializable {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
         homePage = loader2.load();
-        /*homePage.setMinHeight(500);
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setContent(homePage);*/
         Scene scene = new Scene(homePage);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();

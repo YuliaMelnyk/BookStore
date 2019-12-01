@@ -11,6 +11,18 @@
       xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.mycompany.bookstore.SignUpController">
     <children>
+        <HBox alignment="TOP_LEFT"  prefHeight="46.0" prefWidth="392.0">
+            <VBox.margin>
+                <Insets top="-100.0" left="25.0" right="25.0" />
+            </VBox.margin>
+            <children>
+                <ImageView  fx:id="backToLogin" onMouseClicked="#onBackToLoginclicked" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/icons8-back-64.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
         <HBox alignment="CENTER">
             <Label fx:id="loginName" alignment="CENTER" prefHeight="44.0"
                    prefWidth="350.0" text="       REGISTRATION FORM" textFill="#7a5465">
@@ -42,7 +54,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-email-100.png"/>
+                        <Image url="@images/icons8-email-50.png"/>
                     </image>
                 </ImageView>
                 <TextField fx:id="txt_email" prefHeight="40.0" prefWidth="350.0" promptText="Email"/>
@@ -68,7 +80,7 @@
             <children>
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/icons8-address-50.png"/>
+                        <Image url="@images/icons8-map-marker-50.png"/>
                     </image>
                 </ImageView>
                 <TextField fx:id="txt_address" prefHeight="40.0" prefWidth="350.0" promptText="Address"/>
@@ -100,5 +112,6 @@
                 </JFXButton>
             </children>
         </HBox>
+
     </children>
 </VBox>

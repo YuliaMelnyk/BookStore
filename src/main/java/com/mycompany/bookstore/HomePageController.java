@@ -29,13 +29,13 @@ import static com.mycompany.bookstore.MainApp.CurrentBookISBN;
 import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 
 /**
- * @author yuliiamelnyk
+ * @author andrescabrera, yuliiamelnyk
  */
 
 public class HomePageController implements Initializable {
 
     private User user;
-    private Book book;
+    private Book currentbook;
     private List<Book> bookList;
     private int start;
     private BookDao bookDao;
@@ -54,6 +54,8 @@ public class HomePageController implements Initializable {
 
     @FXML
     BorderPane borderPaneBook;
+
+    @FXML Label isbn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -127,9 +129,8 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
+    //method using foreach to take element book and fill fxml element in positions in gridpane
     public void addCardElements() throws IOException {
-        //gridPane.add();
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
 
         GridPane gp = new GridPane();
         gp.setVgap(300);
@@ -138,6 +139,7 @@ public class HomePageController implements Initializable {
         int index = -1;
         bookDao = new BookDao();
         bookList = bookDao.findBooks();
+
         for (Book book : bookList) {
             index++;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
@@ -145,41 +147,27 @@ public class HomePageController implements Initializable {
             hb.setMinHeight(500);
 
 
+            String currentISBN = book.getISBN();
+            CurrentBookISBN = currentISBN;
+            ((Label) loader.getNamespace().get("isbn")).setText(currentISBN);
+
+            //set isbn
+            //TODO
+            //put name value en label from DB
             ((Label) loader.getNamespace().get("name")).setText(book.getName());
+            //Convert price en String
             String price = String.valueOf(book.getPrice());
+            //put price value en label from DB
             ((Label) loader.getNamespace().get("price")).setText(price);
 
+            //add each element in gridpane
             gridPane.add(hb, 0, index);
         }
-
-        /*for (int i = 0; i < bookList.size(); i++) {
-            for (int j = 0; j < bookList.size(); j++) {
-
-                if (index >= bookList.size()) {
-                    break;
-                }
-                try {
-
-                    ((Text) loader.getNamespace().get("image")).setText("image");
-                    ((Text) loader.getNamespace().get("price")).setText("price");
-                    //ElementCardController elementCardController = loader.getController();
-                    //elementCardController. (bookList.get(index));
-                    //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
-                    //((Text)loader.getNamespace().get("snbi")).setText("kajsgdkjahskd");
-                    index++;
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }*/
     }
-
-    @FXML
+    //When the costumer pressed in the image -> enter in the page Book.fxml
+/*    @FXML
     void ImagePressed() {
-
-        String bookISBN = book.getISBN();
-        MainApp.CurrentBookISBN = bookISBN;
+        MainApp.CurrentBookISBN = currentISBN.getText();
 
         try {
             FXMLLoader loader2 = new FXMLLoader();
@@ -196,7 +184,6 @@ public class HomePageController implements Initializable {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-
+    }*/
 
 }

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 /**
- * @author yuliiamelnyk
+ * @author andrescabrera, yuliiamelnyk
  */
 public class Order {
     int number;

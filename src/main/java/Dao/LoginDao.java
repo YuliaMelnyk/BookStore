@@ -9,9 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-
 /**
- * @author andres
+ * @author andrescabrera, yuliiamelnyk
  */
 public class LoginDao extends Dao{
 

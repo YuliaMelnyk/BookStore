@@ -22,7 +22,7 @@
                     <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@images/icons8-home-50.png"/>
+                                <Image url="@images/icons8-shop-50.png"/>
                             </image>
                         </ImageView>
                     </graphic>
@@ -41,7 +41,7 @@
                         <graphic>
                             <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@images/icons8-add-shopping-cart-50.png"/>
+                                    <Image url="@images/icons8-buy-50.png"/>
                                 </image>
                             </ImageView>
                         </graphic>
@@ -60,7 +60,7 @@
                         <graphic>
                             <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@images/icons8-account-50.png"/>
+                                    <Image url="@images/icons8-user-50.png"/>
                                 </image>
                             </ImageView>
                         </graphic>
@@ -82,7 +82,7 @@
                         <graphic>
                             <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@images/icons8-book-shelf-50.png"/>
+                                    <Image url="@images/icons8-book-reading-50.png"/>
                                 </image>
                             </ImageView>
                         </graphic>
@@ -104,7 +104,7 @@
         <children>
 
         <VBox fx:id="homeVBox">
-            <ImageView fx:id="bookImage" fitHeight="280.0" fitWidth="229.0" onMouseClicked="#ImagePressed"
+            <ImageView fx:id="bookImage" fitHeight="280.0" fitWidth="229.0"
                        pickOnBounds="true">
                 <cursor>
                     <Cursor fx:constant="HAND"/>

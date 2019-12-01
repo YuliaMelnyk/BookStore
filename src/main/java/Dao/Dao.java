@@ -7,6 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
+/**
+ * @author andrescabrera, yuliiamelnyk
+ */
 public abstract class Dao {
     protected static final String DATABASE_URL = "jdbc:mysql://localhost:3306/Books";
     protected static final String DATABASE_USERNAME = "root";
