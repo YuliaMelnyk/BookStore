@@ -36,7 +36,7 @@ public class BookDao extends Dao {
                 book.setISBN((String) resultSet.getObject(1));
                 book.setName((String) resultSet.getObject(2));
                 book.setPrice((Float) resultSet.getObject(4));
-                //book.setImage((Byte) resultSet.getObject(6));
+                book.setImage(resultSet.getBytes(6));
 
                 results.add(book);
             }
@@ -63,10 +63,11 @@ public class BookDao extends Dao {
                 book.setGenre((String) resultSet.getObject(3));
                 book.setPrice((Float) resultSet.getObject(4));
                 book.setDescription((String) resultSet.getObject(5));
-                //book.setImage((Byte) resultSet.getObject(6));
+                book.setImage(resultSet.getBytes(6));
                 book.setAuthor((String) resultSet.getObject(7));
-                book.setYear((String) resultSet.getObject(8));
-                book.setLanguage((String) resultSet.getObject(9));
+                book.setPublisher((String) resultSet.getObject(9));
+                book.setYear((String) resultSet.getObject(9));
+                book.setLanguage((String) resultSet.getObject(10));
             }
             return book;
         }

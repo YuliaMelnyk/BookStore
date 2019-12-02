@@ -61,3 +61,8 @@
 .labelName{
     -fx-text-fill: #7a5465;
 }
+.borderCard{
+    -fx-border-color: #f78c7b;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
+}

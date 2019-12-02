@@ -53,7 +53,7 @@ public class LoginDao extends Dao{
 
             User user = new User();
             while (resultSet.next()) {
-                user.setName((String) resultSet.getObject(4));
+                user.setName((String) resultSet.getObject(2));
                 user.setAdmin((boolean)resultSet.getObject(7));
             }
             return user;

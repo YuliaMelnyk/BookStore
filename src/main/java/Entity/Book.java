@@ -17,7 +17,7 @@ public class Book {
     String genre;
     float price;
     String description;
-    byte image;
+    byte[] image;
     String author;
     String publisher;
     String year;
@@ -30,7 +30,7 @@ public class Book {
     }
 
     public Book(String isbn, String name, String genre, float price,
-                String description, byte image, String author,
+                String description, byte[] image, String author,
                 String publisher, String year, String language) {
         this.ISBN = isbn;
         this.name = name;
@@ -47,11 +47,11 @@ public class Book {
     //getters and setters
 
 
-    public byte getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(byte image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 

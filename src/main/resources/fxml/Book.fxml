@@ -15,10 +15,15 @@
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0"
               stylesheets="@styles/style.css" BorderPane.alignment="CENTER">
             <children>
-                <HBox alignment="CENTER" prefHeight="57.0" prefWidth="348.0">
+                <HBox alignment="TOP_LEFT"  spacing="200.0" prefHeight="57.0" prefWidth="348.0">
                     <VBox.margin>
-                        <Insets top="30.0" left="50.0" right="25.0" />
+                        <Insets left="20.0" right="15.0" top="30.0" />
                     </VBox.margin>
+                    <ImageView fx:id="backToHome" onMouseClicked="#onBackcToHomelicked" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@images/icons8-back-64.png"/>
+                        </image>
+                    </ImageView>
                     <children>
                         <Label fx:id="nameBook" text="Java: Head First" textFill="#7a5465">
                             <font>
@@ -53,15 +58,32 @@
                             <children>
 
                                 <HBox prefHeight="37.0" prefWidth="348.0">
-                                    <children>
-                                        <Label fx:id="authorBook" text="by Kathy Sierra, Bert Bates">
+                                <Label  text="by ">
+                                    <font>
+                                        <Font name="System Bold" size="20.0"/>
+                                    </font>
+                                </Label>
+                                        <Label fx:id="authorBook" text="Kathy Sierra, Bert Bates">
                                             <font>
                                                 <Font name="System Bold" size="20.0"/>
                                             </font>
                                         </Label>
+
+                                </HBox>
+                                <HBox prefHeight="45.0" prefWidth="387.0">
+                                    <children>
+                                        <Label  text="Genre: ">
+                                            <font>
+                                                <Font name="System Bold" size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="genre" text="IT ">
+                                            <font>
+                                                <Font name="System Bold" size="18.0"/>
+                                            </font>
+                                        </Label>
                                     </children>
                                 </HBox>
-
                                 <HBox prefHeight="45.0" prefWidth="387.0">
                                     <children>
                                         <Label fx:id="releaseDate" text="Release Date: ">

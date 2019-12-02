@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -15,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -36,12 +38,15 @@ public class BookController implements Initializable {
     public JFXButton cartButton;
 
     @FXML
-    public Label priceBook, nameBook;
+    public Label priceBook, nameBook, authorBook, yearBook, genre;
     @FXML
     public Text descripcionBook;
 
     @FXML
     private VBox cartBox;
+
+    @FXML
+    private VBox homePage;
 
     @FXML
     BorderPane borderPaneBook;
@@ -58,7 +63,14 @@ public class BookController implements Initializable {
         //Convert price en String
         String price = String.valueOf(book.getPrice());
         //put price value en label from DB
+        if (book.getImage() != null) {
+            Image image = new Image(new ByteArrayInputStream(book.getImage()));
+            imageBook.setImage(image);
+        }
         priceBook.setText(price);
+        authorBook.setText(book.getAuthor());
+        genre.setText(book.getGenre());
+        yearBook.setText(book.getYear());
         descripcionBook.setWrappingWidth(400);
         descripcionBook.setText(book.getDescription());
     }
@@ -71,9 +83,19 @@ public class BookController implements Initializable {
         Scene scene = new Scene(cartBox);
         scene.getStylesheets().add("/fxml/styles/style.css");
         Stage stage = MainApp.getPrimaryStage();
-        stage.setTitle("Cart ");
+        stage.setTitle("Cart");
         stage.setScene(scene);
         stage.show();
-
+    }
+    public void onBackcToHomelicked() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
+        homePage = loader.load();
+        Scene scene = new Scene(homePage);
+        scene.getStylesheets().add("/fxml/styles/style.css");
+        Stage stage = MainApp.getPrimaryStage();
+        stage.setTitle("Home Page");
+        stage.setScene(scene);
+        stage.show();
     }
 }

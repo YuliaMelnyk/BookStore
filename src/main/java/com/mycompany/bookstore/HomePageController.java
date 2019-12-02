@@ -5,10 +5,12 @@ import Dao.LoginDao;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -18,8 +20,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Entity.Book;
 import Entity.User;
+import org.apache.commons.compress.utils.ByteUtils;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -55,7 +60,8 @@ public class HomePageController implements Initializable {
     @FXML
     BorderPane borderPaneBook;
 
-    @FXML Label isbn;
+    @FXML
+    Label isbn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -130,11 +136,12 @@ public class HomePageController implements Initializable {
     }
 
     //method using foreach to take element book and fill fxml element in positions in gridpane
-    public void addCardElements() throws IOException {
+    public void addCardElements() throws IOException, SQLException {
 
         GridPane gp = new GridPane();
-        gp.setVgap(300);
+        gp.setVgap(200);
         gp.setHgap(200);
+
 
         int index = -1;
         bookDao = new BookDao();
@@ -144,14 +151,18 @@ public class HomePageController implements Initializable {
             index++;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
             VBox hb = (VBox) loader.load();
-            hb.setMinHeight(500);
+            hb.setMinHeight(350);
+            hb.setPadding(new Insets(10,0,0,10));
 
             //set isbn
             String currentISBN = book.getISBN();
             CurrentBookISBN = currentISBN;
             ((Label) loader.getNamespace().get("isbn")).setText(currentISBN);
-
-            //((ImageView) loader.getNamespace().get("bookImage")).setImage(book.getImage());
+            //put image value en label from DB
+            if (book.getImage() != null) {
+                Image image = new Image(new ByteArrayInputStream(book.getImage()));
+                ((ImageView) loader.getNamespace().get("bookImage")).setImage(image);
+            }
             //put name value en label from DB
             ((Label) loader.getNamespace().get("name")).setText(book.getName());
             //Convert price en String
@@ -160,7 +171,7 @@ public class HomePageController implements Initializable {
             ((Label) loader.getNamespace().get("price")).setText(price);
 
             //add each element in gridpane
-            gridPane.add(hb, 0, index);
+            gridPane.add(hb, index % 2, index/2);
         }
     }
 }

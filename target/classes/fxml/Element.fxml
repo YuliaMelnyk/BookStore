@@ -10,13 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" styleClass="borderCard"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.mycompany.bookstore.ElementCardController"
-      prefHeight="400.0" prefWidth="600.0" stylesheets="@styles/style.css">
+      prefHeight="320.0" prefWidth="230.0" stylesheets="@styles/style.css">
     <children>
-        <ImageView fx:id="bookImage" fitHeight="280.0" fitWidth="229.0" onMouseClicked="#ImagePressed"
+        <ImageView fx:id="bookImage" fitHeight="250.0" fitWidth="229.0" onMouseClicked="#ImagePressed"
                    pickOnBounds="true">
             <image>
                 <Image url="@images/9780596009205.jpg"/>
@@ -25,9 +26,9 @@
                 <Cursor fx:constant="HAND"/>
             </cursor>
         </ImageView>
-        <VBox prefHeight="200.0" prefWidth="100.0">
+        <VBox prefHeight="50.0" prefWidth="100.0">
             <children>
-                <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                <VBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
                     <children>
                         <Label fx:id="isbn" visible="false"></Label>
                         <Label fx:id="name" text="Name" textFill="#7a5465">
