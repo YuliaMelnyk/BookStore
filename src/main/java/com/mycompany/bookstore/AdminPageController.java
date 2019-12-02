@@ -180,8 +180,8 @@ public class AdminPageController implements Initializable {
 
         AdminPageDao adminPageDao = new AdminPageDao();
         adminPageDao.insertBook(isbn, name, genre, price, description, image, author, publisher, year, language);
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-                "Welcome " + txt_name.getText());
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Create book",
+                "Book created" );
     }
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

@@ -146,13 +146,12 @@ public class HomePageController implements Initializable {
             VBox hb = (VBox) loader.load();
             hb.setMinHeight(500);
 
-
+            //set isbn
             String currentISBN = book.getISBN();
             CurrentBookISBN = currentISBN;
             ((Label) loader.getNamespace().get("isbn")).setText(currentISBN);
 
-            //set isbn
-            //TODO
+            //((ImageView) loader.getNamespace().get("bookImage")).setImage(book.getImage());
             //put name value en label from DB
             ((Label) loader.getNamespace().get("name")).setText(book.getName());
             //Convert price en String
@@ -164,26 +163,4 @@ public class HomePageController implements Initializable {
             gridPane.add(hb, 0, index);
         }
     }
-    //When the costumer pressed in the image -> enter in the page Book.fxml
-/*    @FXML
-    void ImagePressed() {
-        MainApp.CurrentBookISBN = currentISBN.getText();
-
-        try {
-            FXMLLoader loader2 = new FXMLLoader();
-            loader2.setLocation(getClass().getResource("/fxml/Book.fxml"));
-            borderPaneBook = loader2.load();
-            Scene scene2 = new Scene(borderPaneBook);
-
-            scene2.getStylesheets().add("/fxml/styles/style.css");
-            Stage stage = MainApp.getPrimaryStage();
-            stage.setScene(scene2);
-            stage.show();
-            stage.show();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }*/
-
 }

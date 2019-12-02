@@ -1,5 +1,8 @@
 package Entity;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,6 +23,7 @@ public class Book {
     String year;
     String language;
     private List<String> images;
+
 
     public Book(){
         images = new LinkedList<>();
@@ -126,8 +130,9 @@ public class Book {
         return images;
     }
 
-    public void setImages(List<String> slike) {
-        this.images = slike;
+    public void setImages(List<String> image) {
+        this.images = image;
     }
+
 
 }

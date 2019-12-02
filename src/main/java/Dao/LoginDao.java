@@ -44,6 +44,7 @@ public class LoginDao extends Dao{
         return false;
 }
 
+// return object user with current email
     public User getUserByEmail(String email) throws SQLException {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_QUERY)) {
@@ -58,6 +59,4 @@ public class LoginDao extends Dao{
             return user;
         }
     }
-
-
 }

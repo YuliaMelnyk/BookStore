@@ -19,25 +19,6 @@ public class BookDao extends Dao {
     private static final String SELECT_QUERY_BOOK = "SELECT * FROM book WHERE isbn = ?";
     private PreparedStatement preparedStatement;
 
-/*    public boolean selectBook() throws SQLException {
-
-        try {
-            Connection connection = DriverManager
-                    .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-            preparedStatement = connection.prepareStatement(SELECT_QUERY_BOOKS);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                return true;
-            }
-            connection.close();
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-        return false;
-    }*/
-
     //Selects List de books, set ISBN, Name and price
     public ArrayList<Book> findBooks() {
         ArrayList<Book> results = new ArrayList<>();
@@ -55,6 +36,7 @@ public class BookDao extends Dao {
                 book.setISBN((String) resultSet.getObject(1));
                 book.setName((String) resultSet.getObject(2));
                 book.setPrice((Float) resultSet.getObject(4));
+                //book.setImage((Byte) resultSet.getObject(6));
 
                 results.add(book);
             }
@@ -81,7 +63,7 @@ public class BookDao extends Dao {
                 book.setGenre((String) resultSet.getObject(3));
                 book.setPrice((Float) resultSet.getObject(4));
                 book.setDescription((String) resultSet.getObject(5));
-                // book.setImage((Byte) resultSet.getObject(6));
+                //book.setImage((Byte) resultSet.getObject(6));
                 book.setAuthor((String) resultSet.getObject(7));
                 book.setYear((String) resultSet.getObject(8));
                 book.setLanguage((String) resultSet.getObject(9));
