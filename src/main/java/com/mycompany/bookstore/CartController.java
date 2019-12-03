@@ -62,10 +62,10 @@ public class CartController implements Initializable {
             e.printStackTrace();
         }
 
-
+/*
         for (Book book : cartTable.getItems()) {
             total = total + book.getPrice();
-        }
+        }*/
         String currencyPrice = currencyFormatter.format(total);
         subtotalLabel.setText(currencyPrice);
 
@@ -77,10 +77,25 @@ public class CartController implements Initializable {
                 super.updateItem(title, empty);
                 if (empty) {
                     setGraphic(null);
+                } else{
+                    Label titleLabel = new Label(book.getName());
+                    setGraphic(titleLabel);
                 }
             }
         });
-       // quantityCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+       quantityCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+       quantityCol.setCellFactory(col -> new TableCell<Book, Integer>(){
+            @Override
+            public void updateItem(Integer quantity, boolean empty) {
+                super.updateItem(quantity, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    Label quantytiLabel = new Label("1");
+                    setGraphic(quantytiLabel);
+                }
+            }
+        });
         priceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
         priceCol.setCellFactory(col -> new TableCell<Book, Float>() {
             @Override
@@ -95,7 +110,11 @@ public class CartController implements Initializable {
                 }
             }
         });
-        cartTable.getItems().setAll(bookDao.findBooks());
+        try {
+            cartTable.getItems().setAll(bookDao.getBookbyISBN(CurrentBookISBN));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }

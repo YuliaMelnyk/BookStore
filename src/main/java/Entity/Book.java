@@ -1,12 +1,7 @@
 package Entity;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author andrescabrera, yuliiamelnyk
@@ -45,7 +40,6 @@ public class Book {
     }
 
     //getters and setters
-
 
     public byte[] getImage() {
         return image;

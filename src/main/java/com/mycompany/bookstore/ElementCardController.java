@@ -30,7 +30,6 @@ public class ElementCardController implements Initializable {
 
     public Book book;
 
-
     //When the costumer pressed in the image -> enter in the page Book.fxml
     @FXML
     void ImagePressed() {

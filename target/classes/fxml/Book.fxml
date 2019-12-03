@@ -39,9 +39,9 @@
                     </VBox.margin>
                     <children>
 
-                        <Pane fx:id="pain" prefHeight="572.0" prefWidth="431.0">
+                        <Pane fx:id="pain" prefHeight="350.0" prefWidth="300.0" >
                             <children>
-                                <ImageView fx:id="imageBook" fitHeight="634.0" fitWidth="431.0" pickOnBounds="true">
+                                <ImageView fx:id="imageBook" fitHeight="350.0" fitWidth="300.0" pickOnBounds="true" styleClass="borderCard">
                                     <image>
                                         <Image url="@images/9780596009205.jpg"/>
                                     </image>
@@ -60,18 +60,22 @@
                                 <HBox prefHeight="37.0" prefWidth="348.0">
                                 <Label  text="by ">
                                     <font>
-                                        <Font name="System Bold" size="20.0"/>
+                                        <Font name="System Bold" size="24.0"/>
                                     </font>
                                 </Label>
                                         <Label fx:id="authorBook" text="Kathy Sierra, Bert Bates">
                                             <font>
-                                                <Font name="System Bold" size="20.0"/>
+                                                <Font name="System Bold" size="24.0"/>
                                             </font>
                                         </Label>
 
                                 </HBox>
                                 <HBox prefHeight="45.0" prefWidth="387.0">
+                                    <VBox.margin>
+                                        <Insets top="20.0"></Insets>
+                                    </VBox.margin>
                                     <children>
+
                                         <Label  text="Genre: ">
                                             <font>
                                                 <Font name="System Bold" size="18.0"/>
@@ -99,13 +103,16 @@
                                     </children>
                                 </HBox>
                                 <HBox prefHeight="37.0" prefWidth="348.0">
+                                    <padding>
+                                        <Insets left="60.0"/>
+                                    </padding>
                                     <children>
-                                        <Label fx:id="priceBook" text="9.99">
+                                        <Label fx:id="priceBook" text="9.99" styleClass="root" textFill="lightcoral">
                                             <font>
                                                 <Font name="System Bold" size="20.0"/>
                                             </font>
                                         </Label>
-                                        <Label fx:id="euro" text=" €">
+                                        <Label fx:id="euro" text=" €" styleClass="root" textFill="lightcoral">
                                             <font>
                                                 <Font name="System Bold" size="20.0"/>
                                             </font>
@@ -146,10 +153,13 @@
                                                 </Label>
 
                                                 <HBox prefHeight="200.0" maxWidth="387.0">
+                                                    <padding>
+                                                        <Insets top="20.0"/>
+                                                    </padding>
                                                     <children>
                                                         <Text wrappingWidth="350.0" fx:id="descripcionBook"  text="This">
                                                             <font>
-                                                                <Font size="18.0"/>
+                                                                <Font name="System Bold" size="18.0"/>
                                                             </font>
                                                         </Text>
                                                     </children>
