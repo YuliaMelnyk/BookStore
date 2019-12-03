@@ -152,7 +152,6 @@ public class HomePageController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
             VBox hb = (VBox) loader.load();
             hb.setMinHeight(350);
-            hb.setPadding(new Insets(10,0,0,10));
 
             //set isbn
             String currentISBN = book.getISBN();
@@ -165,10 +164,6 @@ public class HomePageController implements Initializable {
             }
             //put name value en label from DB
             ((Label) loader.getNamespace().get("name")).setText(book.getName());
-            //Convert price en String
-            String price = String.valueOf(book.getPrice());
-            //put price value en label from DB
-            ((Label) loader.getNamespace().get("price")).setText(price);
 
             //add each element in gridpane
             gridPane.add(hb, index % 2, index/2);

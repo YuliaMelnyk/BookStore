@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="homePage" prefHeight="570.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+<VBox fx:id="homePage" prefHeight="570.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bookstore.HomePageController">
 
     <BorderPane id="borderMenu" styleClass="borderPane">
@@ -97,9 +97,9 @@
 
 <children>
     <ScrollPane fx:id="scrollPane" minHeight="570">
-    <GridPane fx:id="gridPane" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="247.0">
+    <GridPane fx:id="gridPane" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="255.0">
         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="60.0"/>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="40.0"/>
         </padding>
 
     </GridPane>

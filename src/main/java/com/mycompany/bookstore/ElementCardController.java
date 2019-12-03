@@ -26,15 +26,6 @@ public class ElementCardController implements Initializable {
 
     BorderPane borderPaneBook;
 
-    @FXML
-    private Label name;
-
-    @FXML
-    private ImageView bookImage;
-
-    @FXML
-    private Label price;
-
     @FXML Label isbn;
 
     public Book book;
