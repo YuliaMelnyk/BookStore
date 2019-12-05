@@ -5,21 +5,17 @@ import Entity.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.NumberFormat;
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -29,12 +25,10 @@ import static com.mycompany.bookstore.MainApp.CurrentBookISBN;
  * @author andrescabrera, yuliiamelnyk
  */
 
-public class CartController implements Initializable {
+public class CartController extends BackToHome implements Initializable {
 
     @FXML
     private TableView<Book> cartTable;
-    //@FXML
-    //private TableColumn<Book, Book> coverCol;
     @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
@@ -47,10 +41,14 @@ public class CartController implements Initializable {
     private BookDao bookDao;
     private Book book;
     private double total = 0;
-    private List<Book> bookList;
     private ObservableList<Book> activeSession = FXCollections.observableArrayList();
 
     NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.GERMANY);
+
+    @Override
+    public void onBackToHomelicked() throws IOException {
+        super.onBackToHomelicked();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,7 +59,6 @@ public class CartController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 /*
         for (Book book : cartTable.getItems()) {
             total = total + book.getPrice();
@@ -91,8 +88,8 @@ public class CartController implements Initializable {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    Label quantytiLabel = new Label("1");
-                    setGraphic(quantytiLabel);
+                    Label quantityLabel = new Label("1");
+                    setGraphic(quantityLabel);
                 }
             }
         });
@@ -116,22 +113,22 @@ public class CartController implements Initializable {
             e.printStackTrace();
         }
 
+/*        TableColumn<Book, String> column1 = new TableColumn<>("Title");
+        column1.setCellValueFactory(new PropertyValueFactory<>("title"));
 
-    }
-    // parse and construct User datamodel list by looping your ResultSet rs
-    // and return the list
+        TableColumn<Book, String> column2 = new TableColumn<>("Quantity");
+        column2.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        TableColumn<Book, Float> column3 = new TableColumn<>("Price");
+        column3.setCellValueFactory(new PropertyValueFactory<>("orice"));
 
+        cartTable.getColumns().add(column1);
+        cartTable.getColumns().add(column2);
+        cartTable.getColumns().add(column3);
 
-
-    public void continueShopping() {
-
+        cartTable.getItems().setAll(new Book(book.getName(), 1, book.getPrice()));*/
     }
 
     public void proceedToCheckout() {
-
-    }
-
-    public void onBackcToHomelicked() {
 
     }
 }

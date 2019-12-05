@@ -20,6 +20,11 @@ public class Book {
     private List<String> images;
 
 
+    public Book(String name,Integer quantity, float price){
+        this.name = name;
+        this.price = price;
+        quantity = 1;
+    }
     public Book(){
         images = new LinkedList<>();
     }
