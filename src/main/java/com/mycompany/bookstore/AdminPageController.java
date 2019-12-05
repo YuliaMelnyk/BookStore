@@ -1,14 +1,20 @@
 package com.mycompany.bookstore;
 
 import Dao.AdminPageDao;
+import Dao.BookDao;
 import Dao.SignUpDao;
+import Entity.Book;
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -20,6 +26,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -32,6 +39,16 @@ public class AdminPageController implements Initializable {
     //inject  values defined in an FXML file into references
 
     private byte[] image;
+
+    @FXML
+    private TableView<Book> bookTable;
+
+    @FXML
+    private TableColumn<Book, String> ISBN_column;
+
+    @FXML
+    private TableColumn<Book, String> Name_column;
+
 
     @FXML
     private TextField txt_isbn;
@@ -77,10 +94,21 @@ public class AdminPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BookDao dao = new BookDao();
+        ObservableList<Book> bookList = null;
+        try {
+            bookList = FXCollections.observableArrayList(dao.findBooks());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ISBN_column.setCellValueFactory(new PropertyValueFactory<Book, String>("ISBN"));
+        Name_column.setCellValueFactory(new PropertyValueFactory<Book, String>("Name"));
+        bookTable.setItems(bookList);
+
 
     }
 
-    @FXML
+        @FXML
     public void handleChooseFile(ActionEvent event) throws SQLException, IOException {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg *.png)", "*.jpg", "*.png");

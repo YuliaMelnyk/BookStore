@@ -20,13 +20,12 @@ public class BookDao extends Dao {
     private PreparedStatement preparedStatement;
 
     //Selects List de books, set ISBN, Name and price
-    public ArrayList<Book> findBooks() {
+    public ArrayList<Book> findBooks() throws SQLException {
         ArrayList<Book> results = new ArrayList<>();
         ResultSet resultSet = null;
-
+        Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
         try {
-            Connection connection = DriverManager
-                    .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+
             preparedStatement = connection.prepareStatement(SELECT_QUERY_BOOKS);
             // executeQuery returns a ResultSet that contains the desired records
             resultSet = preparedStatement.executeQuery();
@@ -48,12 +47,13 @@ public class BookDao extends Dao {
             } catch (SQLException sqlException) {
                 sqlException.printStackTrace();
             }
+            connection.close();
             return results;
         }
     }
     public Book getBookbyISBN(String isbn) throws SQLException {
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY_BOOK)) {
+        Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY_BOOK)) {
             preparedStatement.setString(1, isbn);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -70,6 +70,8 @@ public class BookDao extends Dao {
                 book.setLanguage((String) resultSet.getObject(10));
             }
             return book;
+        } finally {
+            connection.close();
         }
     }
 }

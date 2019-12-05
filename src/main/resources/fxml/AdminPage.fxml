@@ -181,8 +181,8 @@
                 <TableView fx:id="bookTable" layoutX="35.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="500.0">
 
                     <columns>
-                        <TableColumn fx:id="ISBN_column" prefWidth="250.0" text="ISBN" />
-                        <TableColumn fx:id="Name_column" prefWidth="250.0" text="Name" />
+                        <TableColumn  fx:id="ISBN_column" prefWidth="250.0" text="ISBN" />
+                        <TableColumn  fx:id="Name_column" prefWidth="250.0" text="Name" />
                     </columns>
                 </TableView>
             </children>

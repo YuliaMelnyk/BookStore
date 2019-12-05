@@ -16,10 +16,8 @@ public class SignUpDao extends Dao {
 
     // Create method with connecting to database, doing query and put(insert) our values in database.
     public void insertRecord(String name, String email, String password, String address, String phone) throws SQLException {
-
-        try (Connection connection = DriverManager
-                .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-             PreparedStatement preparedStatement = connection.prepareStatement(QUERY)) {
+        Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(QUERY)) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, email);
             preparedStatement.setString(3, password);
@@ -30,11 +28,14 @@ public class SignUpDao extends Dao {
 
         } catch (SQLException e) {
             printSQLException(e);
+        } finally {
+            connection.close();
         }
     }
-
-
-
-
-
 }
+
+
+
+
+
+
