@@ -39,10 +39,8 @@ import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
 
 public class HomePageController extends BackToHome implements Initializable {
 
-    private User user;
-    private Book currentbook;
+
     private List<Book> bookList;
-    private int start;
     private BookDao bookDao;
 
     @FXML
@@ -52,16 +50,8 @@ public class HomePageController extends BackToHome implements Initializable {
     Hyperlink adminPageButton;
 
     @FXML
-    ImageView bookImage;
-
-    @FXML
     VBox adminVBox, homePage, cartBox;
 
-    @FXML
-    BorderPane borderPaneBook;
-
-    @FXML
-    Label isbn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,6 +87,11 @@ public class HomePageController extends BackToHome implements Initializable {
     @Override
     public void onBackToHomelicked() throws IOException {
         super.onBackToHomelicked();
+    }
+
+    @Override
+    public void onBackToLoginclicked() throws IOException {
+        super.onBackToLoginclicked();
     }
 
     public void gotoAccountPage() throws IOException {
