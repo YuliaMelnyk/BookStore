@@ -19,7 +19,7 @@
                     <VBox.margin>
                         <Insets left="20.0" right="15.0" top="30.0" />
                     </VBox.margin>
-                    <ImageView fx:id="backToHome" onMouseClicked="#onBackcToHomelicked" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="backToHome" onMouseClicked="#onBackToHomelicked" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@images/icons8-back-64.png"/>
                         </image>

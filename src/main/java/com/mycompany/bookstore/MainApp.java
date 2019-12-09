@@ -1,21 +1,15 @@
 package com.mycompany.bookstore;
 
-import com.jfoenix.controls.JFXButton;
+import Entity.Book;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * @author andrescabrera, yuliiamelnyk
@@ -23,6 +17,7 @@ import java.net.URL;
 public class MainApp extends Application {
     public static String CurrentUserEmail;
     public static String CurrentBookISBN;
+    public static ArrayList<Book> CartBookList = new ArrayList<Book>();
 
     private static Stage pStage;
 

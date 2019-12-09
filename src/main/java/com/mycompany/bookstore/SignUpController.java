@@ -1,9 +1,7 @@
 package com.mycompany.bookstore;
 
 import Dao.SignUpDao;
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +10,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -27,7 +24,7 @@ import java.util.ResourceBundle;
  * @author andrescabrera, yuliiamelnyk
  */
 
-public class SignUpController implements Initializable {
+public class SignUpController extends BackToHome implements Initializable {
 
     private static final String STYLESHEET = LoginController.class.getResource("/fxml//styles/alert.css").toExternalForm();
     @FXML
@@ -120,12 +117,16 @@ public class SignUpController implements Initializable {
 
         SignUpDao signUpDao = new SignUpDao();
         signUpDao.insertRecord(name, email, password, address, phone);
-
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                 "Welcome " + txt_name.getText());
-        onRegistrationClick();
+        onBackToHomelicked();
     }
-//method to show alert window
+
+    @Override
+    public void onBackToHomelicked() throws IOException {
+        super.onBackToHomelicked();
+    }
+    //method to show alert window
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
@@ -135,18 +136,5 @@ public class SignUpController implements Initializable {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
-    }
-
-    public void onRegistrationClick() throws IOException {
-
-        FXMLLoader loader2 = new FXMLLoader();
-        loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
-        homePage = loader2.load();
-        Scene scene = new Scene(homePage);
-        scene.getStylesheets().add("/fxml/styles/style.css");
-        Stage stage = MainApp.getPrimaryStage();
-        stage.setTitle("Home Page");
-        stage.setScene(scene);
-        stage.show();
     }
 }

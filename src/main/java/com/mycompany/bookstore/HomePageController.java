@@ -37,7 +37,7 @@ import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
  * @author andrescabrera, yuliiamelnyk
  */
 
-public class HomePageController implements Initializable {
+public class HomePageController extends BackToHome implements Initializable {
 
     private User user;
     private Book currentbook;
@@ -81,10 +81,6 @@ public class HomePageController implements Initializable {
     }
 //Call methods from menu and switch to another scene(page)
 
-    public void gotoHomePage() throws IOException {
-        switchScenes("/fxml/HomePage.fxml");
-    }
-
     public void gotoAdminPage() throws IOException {
 
         FXMLLoader loader2 = new FXMLLoader();
@@ -96,6 +92,11 @@ public class HomePageController implements Initializable {
         stage.setTitle("Admin Page");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    public void onBackToHomelicked() throws IOException {
+        super.onBackToHomelicked();
     }
 
     public void gotoAccountPage() throws IOException {
@@ -122,26 +123,12 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
-    // Create a new scene for a window
-
-    public void switchScenes(String url) throws IOException {
-        FXMLLoader loader2 = new FXMLLoader();
-        loader2.setLocation(getClass().getResource(url));
-        homePage = loader2.load();
-        Scene scene = new Scene(homePage);
-        scene.getStylesheets().add("/fxml/styles/style.css");
-        Stage stage = MainApp.getPrimaryStage();
-        stage.setScene(scene);
-        stage.show();
-    }
-
     //method using foreach to take element book and fill fxml element in positions in gridpane
     public void addCardElements() throws IOException, SQLException {
 
         GridPane gp = new GridPane();
         gp.setVgap(200);
         gp.setHgap(200);
-
 
         int index = -1;
         bookDao = new BookDao();

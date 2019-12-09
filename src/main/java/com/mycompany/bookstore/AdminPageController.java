@@ -2,21 +2,16 @@ package com.mycompany.bookstore;
 
 import Dao.AdminPageDao;
 import Dao.BookDao;
-import Dao.SignUpDao;
 import Entity.Book;
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.FileChooser;
 
@@ -24,17 +19,14 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
-import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
  * @author andrescabrera, yuliiamelnyk
  */
 
-public class AdminPageController implements Initializable {
-
+public class AdminPageController extends BackToHome implements Initializable {
 
     //inject  values defined in an FXML file into references
 
@@ -48,7 +40,6 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TableColumn<Book, String> Name_column;
-
 
     @FXML
     private TextField txt_isbn;
@@ -104,18 +95,20 @@ public class AdminPageController implements Initializable {
         ISBN_column.setCellValueFactory(new PropertyValueFactory<Book, String>("ISBN"));
         Name_column.setCellValueFactory(new PropertyValueFactory<Book, String>("Name"));
         bookTable.setItems(bookList);
-
-
     }
 
-        @FXML
+    @Override
+    public void onBackToHomelicked() throws IOException {
+        super.onBackToHomelicked();
+    }
+
+    @FXML
     public void handleChooseFile(ActionEvent event) throws SQLException, IOException {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.jpg *.png)", "*.jpg", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(MainApp.getPrimaryStage());
         image = Files.readAllBytes(file.toPath());
-
     }
 
     @FXML
@@ -126,19 +119,6 @@ public class AdminPageController implements Initializable {
     @FXML
     public void deleteBook() {
 
-    }
-
-    @FXML
-    public void onBackcToHomelicked() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
-        homePage = loader.load();
-        Scene scene = new Scene(homePage);
-        scene.getStylesheets().add("/fxml/styles/style.css");
-        Stage stage = MainApp.getPrimaryStage();
-        stage.setTitle("Home Page");
-        stage.setScene(scene);
-        stage.show();
     }
 
     //on Click event method

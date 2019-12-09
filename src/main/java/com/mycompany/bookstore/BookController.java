@@ -23,10 +23,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.mycompany.bookstore.MainApp.CartBookList;
+
 /**
  * @author andrescabrera, yuliiamelnyk
  */
-public class BookController implements Initializable {
+public class BookController extends BackToHome implements Initializable {
 
     private Book book;
     private List<Book> bookList;
@@ -87,15 +89,9 @@ public class BookController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void onBackcToHomelicked() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
-        homePage = loader.load();
-        Scene scene = new Scene(homePage);
-        scene.getStylesheets().add("/fxml/styles/style.css");
-        Stage stage = MainApp.getPrimaryStage();
-        stage.setTitle("Home Page");
-        stage.setScene(scene);
-        stage.show();
+
+    @Override
+    public void onBackToHomelicked() throws IOException {
+        super.onBackToHomelicked();
     }
 }

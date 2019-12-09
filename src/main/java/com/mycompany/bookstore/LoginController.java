@@ -31,7 +31,7 @@ import static javafx.application.Application.getUserAgentStylesheet;
 /**
  * @author andrescabrera, yuliiamelnyk
  */
-public class LoginController implements Initializable {
+public class LoginController extends BackToHome implements Initializable {
 
 
     //inject  values defined in an FXML file into references
@@ -97,7 +97,7 @@ public class LoginController implements Initializable {
 
             infoBox("Welcome back " + name, null, "Success!");
             CurrentUserEmail = emailId;
-            onSignInClick();
+            onBackToHomelicked();
 
         }
     }
@@ -141,16 +141,8 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
-    public void onSignInClick() throws IOException {
-
-        FXMLLoader loader2 = new FXMLLoader();
-        loader2.setLocation(getClass().getResource("/fxml/HomePage.fxml"));
-        homePage = loader2.load();
-        Scene scene = new Scene(homePage);
-        scene.getStylesheets().add("/fxml/styles/style.css");
-        Stage stage = MainApp.getPrimaryStage();
-        stage.setTitle("Home Page");
-        stage.setScene(scene);
-        stage.show();
+    @Override
+    public void onBackToHomelicked() throws IOException {
+        super.onBackToHomelicked();
     }
 }

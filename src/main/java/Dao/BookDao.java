@@ -1,18 +1,15 @@
 package Dao;
 
 import Entity.Book;
-import Entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * @author andrescabrera, yuliiamelnyk
  */
 public class BookDao extends Dao {
-
 
     // create query
     private static final String SELECT_QUERY_BOOKS = "SELECT * FROM book";
