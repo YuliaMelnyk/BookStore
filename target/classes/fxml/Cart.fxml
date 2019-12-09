@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXButton?>
 <VBox fx:id="cartBox" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.mycompany.bookstore.CartController"
@@ -33,8 +34,7 @@
         </Separator>
         <TableView fx:id="cartTable" prefHeight="400.0" prefWidth="500.0">
             <columns>
-                <TableColumn fx:id="titleCol" editable="false" prefWidth="250.0" resizable="false" sortable="false" style="-fx-alignment: center-left;" text="TITLE" />
-                <TableColumn fx:id="quantityCol" editable="false" prefWidth="100.0" resizable="false" sortable="false" style="-fx-alignment: center;" text="QUANTITY" />
+                <TableColumn fx:id="titleCol" editable="false" prefWidth="350.0" resizable="false" sortable="false" style="-fx-alignment: center-left;" text="TITLE" />
                 <TableColumn fx:id="priceCol" editable="false" prefWidth="150.0" resizable="false" sortable="false" text="PRICE" />
             </columns>
             <columnResizePolicy>
@@ -46,8 +46,9 @@
                 <Insets bottom="8.0" top="8.0" right="10.0"/>
             </padding>
             <children>
-                <Button mnemonicParsing="false" onAction="#onBackToHomelicked" styleClass="pink-btn" text="Continue Shopping" />
-                <Button layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#proceedToCheckout" styleClass="pink-btn" text="Checkout" />
+                <JFXButton mnemonicParsing="false" onAction="#onBackToHomelicked" styleClass="pink-btn" text="Continue Shopping" />
+                <JFXButton fx:id="proceedToCheckout" layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#proceedToCheckout" styleClass="pink-btn" text="Checkout" />
+                <JFXButton fx:id="deleteItem" visible="false" layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#deleteItem" styleClass="pink-btn" text="Remove" />
                 <Pane prefWidth="120.0" />
                 <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Subtotal:">
                     <font>
