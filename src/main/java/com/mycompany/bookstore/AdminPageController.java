@@ -7,10 +7,12 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.FileChooser;
@@ -21,6 +23,9 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static com.mycompany.bookstore.MainApp.BookList;
+
 
 /**
  * @author andrescabrera, yuliiamelnyk
@@ -80,21 +85,41 @@ public class AdminPageController extends BackToHome implements Initializable {
     @FXML
     private JFXButton btn_delete;
 
-    @FXML
-    private VBox homePage;
+    private BookDao dao;
+    private Book book;
+    //private ObservableList<Book> bookList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        BookDao dao = new BookDao();
-        ObservableList<Book> bookList = null;
+        dao = new BookDao();
         try {
-            bookList = FXCollections.observableArrayList(dao.findBooks());
+            book = dao.getBookbyISBN(MainApp.CurrentBookISBN);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         ISBN_column.setCellValueFactory(new PropertyValueFactory<Book, String>("ISBN"));
         Name_column.setCellValueFactory(new PropertyValueFactory<Book, String>("Name"));
-        bookTable.setItems(bookList);
+        bookTable.getItems().setAll(BookList);
+        bookTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 2) {
+                    Book selectedItem = bookTable.getSelectionModel().getSelectedItem();
+                    txt_isbn.setText(selectedItem.getISBN());
+                    txt_name.setText(selectedItem.getName());
+                    txt_genre.setText(selectedItem.getGenre());
+                    String price = String.valueOf(selectedItem.getPrice());
+                    txt_price.setText(price);
+                    txt_description.setText(selectedItem.getDescription());
+                    txt_author.setText(selectedItem.getAuthor());
+                    txt_publisher.setText(selectedItem.getPublisher());
+                    txt_year.setText(selectedItem.getYear());
+                    txt_language.setText(selectedItem.getLanguage());
+                }
+            }
+        });
+
     }
 
     @Override
@@ -113,12 +138,35 @@ public class AdminPageController extends BackToHome implements Initializable {
 
     @FXML
     public void updateBook() {
+       btn_update.setOnAction(e -> {
 
+           String isbn = txt_isbn.getText();
+           String name = txt_name.getText();
+           String genre = txt_genre.getText();
+           Float price = Float.parseFloat(txt_price.getText());
+           String description = txt_description.getText();
+           String author = txt_author.getText();
+
+           String publisher = txt_publisher.getText();
+           String year = txt_year.getText();
+           String language = txt_language.getText();
+
+           AdminPageDao adminPageDao = new AdminPageDao();
+           try {
+               adminPageDao.insertBook(isbn, name, genre, price, description, image, author, publisher, year, language);
+           } catch (SQLException ex) {
+               ex.printStackTrace();
+           }
+       });
     }
 
     @FXML
     public void deleteBook() {
-
+        btn_delete.setOnAction(e -> {
+            book = bookTable.getSelectionModel().getSelectedItem();
+            bookTable.getItems().remove(book);
+            BookList.remove(book);
+        });
     }
 
     //on Click event method
@@ -189,7 +237,7 @@ public class AdminPageController extends BackToHome implements Initializable {
         AdminPageDao adminPageDao = new AdminPageDao();
         adminPageDao.insertBook(isbn, name, genre, price, description, image, author, publisher, year, language);
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Create book",
-                "Book created" );
+                "Book created");
     }
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

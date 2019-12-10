@@ -5,26 +5,19 @@ import Dao.LoginDao;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Entity.Book;
 import Entity.User;
-import org.apache.commons.compress.utils.ByteUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -32,6 +25,7 @@ import java.util.ResourceBundle;
 
 import static com.mycompany.bookstore.MainApp.CurrentBookISBN;
 import static com.mycompany.bookstore.MainApp.CurrentUserEmail;
+import static com.mycompany.bookstore.MainApp.BookList;
 
 /**
  * @author andrescabrera, yuliiamelnyk
@@ -127,9 +121,9 @@ public class HomePageController extends BackToHome implements Initializable {
 
         int index = -1;
         bookDao = new BookDao();
-        bookList = bookDao.findBooks();
+        BookList = bookDao.findBooks();
 
-        for (Book book : bookList) {
+        for (Book book : BookList) {
             index++;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Element.fxml"));
             VBox hb = (VBox) loader.load();

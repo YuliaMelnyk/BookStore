@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author andrescabrera, yuliiamelnyk
@@ -18,6 +19,7 @@ public class MainApp extends Application {
     public static String CurrentUserEmail;
     public static String CurrentBookISBN;
     public static ArrayList<Book> CartBookList = new ArrayList<Book>();
+    public static List<Book> BookList = new ArrayList<Book>();
 
     private static Stage pStage;
 
